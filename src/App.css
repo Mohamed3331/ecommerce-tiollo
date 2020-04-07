@@ -1,38 +1,240 @@
-.App {
-  text-align: center;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: lighter;
+   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    width: 100%;
+    position: absolute;
+    z-index:10;
+    top:0;
+    background-color: transparent;
+    position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav:hover {
+    background-color: white;
+    transition: 0.4s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo {
+    color: rgb(10, 10, 10);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 22px;
+    flex-grow: 1;
+    padding-left: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+    font-family: 'lora',serif;
+    position: center;
+    position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.down {
+    border: solid rgb(10, 10, 10);
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a{
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(214, 211, 211);
+    margin: 5px;
+}
+
+.dropdown-links {
+    display: none;
+    background-color: white;
+}
+
+.nav-links a:hover {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav ul li:hover .dropdown-links {
+    display: block;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: -15px;
+    transition: 5s;
+}
+
+nav ul li:hover .dropdown-links ul {
+    display: block;
+    margin: 10px;
+    transition: 5s;
+}
+
+nav ul li:hover .dropdown-links ul li{
+    width: 150px;
+    padding: 10px;
+    background: transparent;
+    text-align: left;
+}
+
+nav ul li:hover .dropdown-links ul li a:hover{
+    color: rgb(100, 88, 88)
+}
+
+.fa-angle-right {
+    float: right;
+}
+
+.dropdown-down-links {
+    display: none;
+}
+
+.hover-me:hover .dropdown-down-links{
+    position: absolute;
+    display: block;
+    margin-top: -40px;
+    margin-left: 140px;
+    background: transparent;
+}
+    
+
+@media screen and (max-width:1700px) {
+        .nav-links {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: #5d4954;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;    
+    }
+
+}
+
+.nav-active {
+    transform: translateX(0%)
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* NAVBAR */
+
+/* Image Slider */
+
+.hero-slide {
+    height: 1440px !important;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image Slider */
+
+/* Footer */
+
+.footer-tag {
+    text-transform: uppercase;
+    text-shadow: aqua;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 50px;
+    font-size: 15px;
+}
+
+.footer-line {
+    text-transform: uppercase;
+    text-shadow: aqua;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 50px;
+    font-size: 15px;
+}
+
+.boxes-aligned {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    font-size: 15px;
+    border: 2px solid green;
+    background-origin: padding-box;
+}
+
+/* Footer */
