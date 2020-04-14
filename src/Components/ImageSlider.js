@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import mansmiling from '../Images/man-smiling.jpeg'
 import womenstanding from '../Images/sl_01__56689.jpg'
 import elsahosk from '../Images/elsa-hosk-5k-2018.jpg'
@@ -13,10 +13,10 @@ const HeroSliderConfigs = {
   grabCursor: true,
   loop: true,
   autoplay: {
-        delay: 3000,
+        delay: 500,
         disableOnInteraction: false
       },
-  speed: 6500,
+  speed: 2500,
   spaceBetween: 0,
   effect: 'slide'
 };

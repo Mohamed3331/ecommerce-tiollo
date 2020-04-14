@@ -1,82 +1,98 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {Link} from 'react-router-dom'
+import { FiChevronDown } from 'react-icons/fi';
+import { IoIosCart } from 'react-icons/io';
 
-
-export default class Navbar extends Component {
-    render() {
-        return (
-            
+export default function Navbar(props) {
+  
+    return (           
             <div id="main">
             <nav className="soso">
                 <div className="logo">
-                    <h4>Tiollo</h4>
+                    <Link style={{ color: 'rgb(32, 32, 32)' }} to='/'>Tiollo</Link>
                 </div>
             
                 <ul className="nav-links">
-                    <li className="active"><a href="">New <p className="down"></p> </a>
+                    <li> Women <FiChevronDown className="down-icon"/>
                         <div className="dropdown-links">
                             <ul>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Women</a></li>
+                                <li><Link style={{ color: 'black' }} to='/tops/'>Tops</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/dresses/'>dresses</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/coats/'>coats</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/sweatshirts-2/'>sweatshirts</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/knitwear-2/'>knitwear</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/footwear-2/'>footwear</Link></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li> Men <FiChevronDown className="down-icon"/> 
+                        <div className="dropdown-links">
+                            <ul>
+                                <li><Link style={{ color: 'black' }} to='/tops/'>Tops</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/tees/'>tees</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/legwear/'>legwear</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/sweatshirts-1/'>sweatshirts</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/shirts-1/'>shirts</Link></li>
+                                <li><Link style={{ color: 'black' }} to='/footwear-1/'>Tops</Link></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li> Accessories <FiChevronDown className="down-icon"/>
+                        <div className="dropdown-links">
+                            <ul>
+                                <li class="hover-me"><Link style={{ color: 'black' }} to='/men/'>Men</Link><div className="fa fa-angle-right"></div>
+                                    <div className="dropdown-down-links">
+                                        <ul>
+                                            <li style={{ color: 'black' }}>soso</li>
+                                            <li style={{ color: 'black' }}  >lolo</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="hover-me"><Link style={{ color: 'black' }} to='/men/'>Women</Link><div className="fa fa-angle-right"></div>
+                                    <div className="dropdown-down-links">
+                                        <ul>
+                                            <li style={{ color: 'black' }}>soso</li>
+                                            <li style={{ color: 'black' }}  >lolo</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li> Fashion <FiChevronDown className="down-icon"/>
+                        <div className="dropdown-links">
+                            <ul>
+                                <li class="hover-me"><Link style={{ color: 'black' }} to='/men/'>Men</Link><div className="fa fa-angle-right"></div>
+                                    <div className="dropdown-down-links">
+                                        <ul>
+                                            <li style={{ color: 'black' }}>soso</li>
+                                            <li style={{ color: 'black' }}  >lolo</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="hover-me"><Link style={{ color: 'black' }} to='/men/'>Women</Link><div className="fa fa-angle-right"></div>
+                                    <div className="dropdown-down-links">
+                                        <ul>
+                                            <li style={{ color: 'black' }}>soso</li>
+                                            <li style={{ color: 'black' }}  >lolo</li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </li> 
-                    <li className="active"><a href="#">Women</a>  <p className="down"></p> 
-                        <div className="dropdown-links">
-                            <ul>
-                                <li><a href="#">Tops</a></li>
-                                <li><a href="#">Dresses</a></li>
-                                <li><a href="#">Coats  Jackets</a></li>
-                                <li><a href="#">Sweatshirts</a></li>
-                                <li><a href="#">Knitwear</a></li>
-                                <li><a href="#">Shoes Heels</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li className="active"><a href="#">Men</a>  <p className="down"></p> 
-                        <div className="dropdown-links">
-                            <ul>
-                                <li><a href="#">Tops</a></li>
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">Legwear</a></li>
-                                <li><a href="#">Sweatshirts</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Sweatshirts</a></li>
-                                <li><a href="#">Footwear</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li className="active"><a href="#">Accessories</a> <p className="down"></p>
-                        <div className="dropdown-links">
-                            <ul>
-                                <li className="hover-me"><a href="#">Men</a><li className="fa fa-angle-right"></li>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li><a href="">fsdds</a></li>
-                                            <li><a href="">fdsfds</a></li>
-                                            <li><a href="">fsdfdsfdsfds</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="#">Women</a><li className="fa fa-angle-right"></li>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li><a href="">fsdds</a></li>
-                                            <li><a href="">fdsfds</a></li>
-                                            <li><a href="">fsdfdsfdsfds</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li className="active"><a href="#">Fashion</a> <p className="down"></p>
-                        <div className="dropdown-links">
-                            <ul>
-                                <li><a href="#">Tops</a></li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
+
+                <div className="sign-in">SIGN IN</div>
+
+                <div className="my-cart-b">
+               MY CART (5)
+                </div>
+
+                <div className="cart">
+                    <IoIosCart size={30}/>
+                </div>
+                
                 <div className="burger">
                     <div className="line1"></div>
                     <div className="line2"></div>
@@ -85,7 +101,6 @@ export default class Navbar extends Component {
             </nav>
         </div>
          
-        )
-    }
+    )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 // import './App.css'
-import Navbar from './Components/Navbar'
 import {Switch,Route} from "react-router-dom"
 import Home from './Pages/Home'
 import Products from './Pages/Products'
@@ -12,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/:slug" component={Products}/>
-        <Route exact path="/:slug/:id" component={Products}/>  
+        <Route exact path="/:slug/:id" component={SingleProduct}/>  
         {/* <Route component={Error}/> */}
       </Switch>
     </>
