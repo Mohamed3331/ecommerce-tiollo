@@ -86,7 +86,7 @@ export default function Navbar(props) {
                 <div className="sign-in">SIGN IN</div>
 
                 <div className="my-cart-b">
-               MY CART (5)
+               MY CARfT (5)
                 </div>
 
                 <div className="cart">
