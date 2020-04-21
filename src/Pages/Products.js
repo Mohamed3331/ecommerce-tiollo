@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
+
 import Navbar from '../Components/Navbar'
 import Bar from '../Components/Bar'
 import ProductContainer from '../Components/ProductContainer'
@@ -10,14 +11,15 @@ export default class Products extends Component {
     state = {
         slug: this.props.match.params.slug,
     }
+    
 
     static contextType = ProductContext
 
     render() {
+        console.log(this.state.slug);
 
         const {getProducts} = this.context
         let products = getProducts(this.state.slug)
-        console.log(this.state.slug) 
         if (!products) {
             return ( 
                 <div className="error">
@@ -26,10 +28,9 @@ export default class Products extends Component {
             )
         }
 
-        
         return (
             <div>
-                <Navbar/>
+                <Navbar NavWhite="WhiteNav"/>
                 <Bar/>
                 <ProductContainer/>
                 <section className="productlist">

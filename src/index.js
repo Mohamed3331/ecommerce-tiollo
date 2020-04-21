@@ -7,7 +7,7 @@ import {ProductProvider} from './context'
 
 ReactDOM.render(
 <ProductProvider>
-  <Router>
+  <Router forceRefresh={true}>
     <App />
   </Router> 
 </ProductProvider> ,document.getElementById('root'));

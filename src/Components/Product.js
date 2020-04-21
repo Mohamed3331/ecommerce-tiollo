@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Product({product}) {
-    const {name,slug,images,price} = product    
+    const {name,id,slug,images,price} = product    
 
     return (
     <>
@@ -11,7 +11,7 @@ export default function Product({product}) {
                 <div className="product-card">
                     <div className="badge">Hot</div>
                         <div className="product-tumb">
-                            <img src={images[0]} alt=""/>
+                         <Link to={`/${slug}/${id}`}> <img src={images[0]} alt=""/>  </Link>
                         </div>
                         <div className="product-details">
                             <h4><a href="">{name}</a></h4>
@@ -31,3 +31,4 @@ export default function Product({product}) {
     )
 }
 
+{/* <Link to={`/rooms/${slug}`} className="btn-primary room-link">Features</Link> */}

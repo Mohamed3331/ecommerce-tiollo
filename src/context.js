@@ -10,8 +10,13 @@ class ProductProvider extends Component {
     featuredProducts: [],
     loading: true,
     type: "all",
-    quantity: 1
+    cart: [],
+    cartSubTotal: 0,
+    cartTax: 0,
+    cartTotal: 0,
   };
+
+  
 
   getData = async () => {
     try {
@@ -28,12 +33,17 @@ class ProductProvider extends Component {
       });
 
     } catch (e) {
-      console.log(e);
-    }
+    console.log(e);
+   }
   };
 
   componentDidMount() {
     this.getData();
+    this.testing()
+  }
+
+  testing() {
+    this.setState({ cart: [ {"name": "object"}, ...this.state.cart] })
   }
 
   formatData(items) {
@@ -53,15 +63,22 @@ class ProductProvider extends Component {
     return products;
   };
 
-  getProduct = slug => {
+  getProduct = id => {
     let tempProducts = [...this.state.products];
-    const product = tempProducts.find(product => product.slug === slug);
+    const product = tempProducts.find(product => product.id === id);
     return product;
   };
 
+  getCardItem = id => {
+    let tempProducts = [...this.state.products];
+    const product = tempProducts.find(product => product.id === id);
+    this.setState({ cart: [ product, ...this.state.cart] })
+  }
+
   render() {
+console.log(this.state.cart);
     return (
-      <ProductContext.Provider value={{...this.state, getProducts:this.getProducts, getProduct:this.getProduct}}>
+      <ProductContext.Provider value={{...this.state, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
         {this.props.children}
       </ProductContext.Provider>
     );
