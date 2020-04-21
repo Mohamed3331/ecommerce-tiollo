@@ -30,7 +30,7 @@ export default function Cart() {
 
             <thead>
               <tr>
-                <th>Cart Items</th>
+                <th>Cart Itemss</th>
                 <th>Item Name</th>
                 <th>Item Price</th>
                 <th>QTY</th>
