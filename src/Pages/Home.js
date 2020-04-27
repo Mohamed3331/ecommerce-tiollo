@@ -5,6 +5,7 @@ import ImageSlider from '../Components/ImageSlider'
 import Footer from '../Components/Footer'
 
 export default function Home() {
+
     return (
         <div>
             <NavBar/>

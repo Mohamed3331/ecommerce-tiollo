@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
 import {ProductProvider} from './context'
 
-ReactDOM.render(
+
+
+ReactDOM.render( 
 <ProductProvider>
   <Router forceRefresh={true}>
     <App />

@@ -13,7 +13,7 @@ const HeroSliderConfigs = {
   grabCursor: true,
   loop: true,
   autoplay: {
-        delay: 500,
+        delay: 700,
         disableOnInteraction: false
       },
   speed: 2500,
@@ -30,10 +30,10 @@ const ImageSlider = () => {
       <Swiper {...HeroSliderConfigs} getSwiper={setParallaxSwiper}>
         <div className="hero-slide">
           <div className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity="0.4">
-            <img src={mansmiling} alt="image1"></img>
+            <img src={mansmiling} alt="image1"/><div style={{color: 'black'}}>gfdgdf</div>
           </div>
-
         </div>
+        
         <div className="hero-slide">
           <div className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity="0.4">
             <img src={womenstanding} alt="image2"></img>
@@ -51,40 +51,6 @@ const ImageSlider = () => {
 };
 
 export default ImageSlider;
-
-// export default class ImageSlider extends Component {
-//   state = {
-//     parallaxSwiper: 0
-//   }
-
-//   render() {
-//     const parallaxAmount = this.state.parallaxSwiper ? this.state.parallaxSwiper.width * 0.80 : 0;
-//     const parallaxOpacity = 0.9;
-
-//    return (
-//       <Swiper {...HeroSliderConfigs} getSwiper={this.setState()}>
-//         <div className="hero-slide">
-//           <div className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity={parallaxOpacity}>
-//             <img src={mansmiling} alt="image1"></img>
-//           </div>
-
-//         </div>
-//         <div className="hero-slide">
-//           <div className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity={parallaxOpacity}>
-//             <img src={womenstanding} alt="image2"></img>
-//           </div>
-//         </div>
-
-//         <div className="hero-slide">
-//           <div
-//             className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity={parallaxOpacity}>
-//             <img src={elsahosk} alt="image3"></img>
-//           </div>
-//         </div>
-//       </Swiper>
-//     );
-//   }
-// }
 
 
 

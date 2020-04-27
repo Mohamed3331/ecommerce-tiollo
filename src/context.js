@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Client from "./Contentful";
+import app from './firebase'
+import * as firebase from 'firebase'
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 const ProductContext = React.createContext()
 
@@ -14,9 +17,34 @@ class ProductProvider extends Component {
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
+    signedIn: false
   };
 
-  
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
+
+  componentDidMount() {
+    this.getData();
+    this.authWithFacebook()
+  }
+
+  authWithFacebook = async () => {
+
+    await firebase.auth().onAuthStateChanged((user) => {
+      this.setState({signedIn: user})
+    })
+  }
+
+  authSignOut() {
+    firebase.auth().signOut()
+  }
 
   getData = async () => {
     try {
@@ -36,15 +64,6 @@ class ProductProvider extends Component {
     console.log(e);
    }
   };
-
-  componentDidMount() {
-    this.getData();
-    this.testing()
-  }
-
-  testing() {
-    this.setState({ cart: [ {"name": "object"}, ...this.state.cart] })
-  }
 
   formatData(items) {
     let tempItems = items.map(item => {
@@ -76,11 +95,13 @@ class ProductProvider extends Component {
   }
 
   render() {
-console.log(this.state.cart);
+
     return (
-      <ProductContext.Provider value={{...this.state, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
-        {this.props.children}
-      </ProductContext.Provider>
+      <>
+        <ProductContext.Provider value={{...this.state, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
+          {this.props.children}
+        </ProductContext.Provider>
+      </>
     );
   }
 }

@@ -16,7 +16,7 @@ export default function Cart() {
        ["font-weight"]: "600"
       }
 
-       const styledRemoveButton = {
+      const styledRemoveButton = {
        ["margin-left"]: "8px",
       }
     
