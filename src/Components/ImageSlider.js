@@ -30,7 +30,7 @@ const ImageSlider = () => {
       <Swiper {...HeroSliderConfigs} getSwiper={setParallaxSwiper}>
         <div className="hero-slide">
           <div className="slide-image" data-swiper-parallax={parallaxAmount} data-swiper-parallax-opacity="0.4">
-            <img src={mansmiling} alt="image1"/><div style={{color: 'black'}}>gfdgdf</div>
+            <img src={mansmiling} alt="image1"/>
           </div>
         </div>
         
