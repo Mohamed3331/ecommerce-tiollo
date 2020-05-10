@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import { FiChevronDown } from 'react-icons/fi';
-import { FiChevronRight } from 'react-icons/fi';
 import { IoIosCart } from 'react-icons/io';
-import image9 from '../Images/main.webp'
-
+import image15 from '../Images/main.webp'
 
 
 export default function Navbar(props) {
@@ -31,89 +28,82 @@ export default function Navbar(props) {
 
     return (       
         <>    
-            <div id="main">
-            <nav className={props.NavWhite}>
+            <div className={"navbar " + props.NavWhite} >
                 <div className="logo">
-                    <Link style={styledLink} to='/'>Tiollo</Link>
+                    <a href="">Tiollo</a>
                 </div>
-            
-                <ul className="nav-links">
-                    <li> Women <FiChevronDown className="down-icon"/>
-                        <div className="dropdown-links">
-                            <ul>
-                                <li><Link style={styledLink} to='/tops/'>Tops</Link></li>
-                                <li><Link style={styledLink} to='/dresses/'>dresses</Link></li>
-                                <li><Link style={styledLink} to='/coats/'>coats</Link></li>
-                                <li><Link style={styledLink} to='/sweatshirts/'>sweatshirts</Link></li>
-                                <li><Link style={styledLink} to='/knitwear/'>knitwear</Link></li>
-                                <li><Link style={styledLink} to='/footwear/'>footwear</Link></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li> Men <FiChevronDown className="down-icon"/> 
-                        <div className="dropdown-links">
-                            <ul>
-                                <li><Link style={styledLink} to='/tops/'>Tops</Link></li>
-                                <li><Link style={styledLink} to='/tees/'>tees</Link></li>
-                                <li><Link style={styledLink} to='/legwear/'>legwear</Link></li>
-                                <li><Link style={styledLink} to='/sweatshirts/'>sweatshirts</Link></li>
-                                <li><Link style={styledLink} to='/shirts/'>shirts</Link></li>
-                                <li><Link style={styledLink} to='/footwear/'>Tops</Link></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li> Accessories <FiChevronDown className="down-icon"/>
-                        <div className="dropdown-links">
-                            <ul>
-                                <li className="hover-me"><Link style={styledLink} to='/men/'>Men</Link> <FiChevronRight/>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li style={styledLink}>soso</li>
-                                            <li style={styledLink}  >lolo</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li className="hover-me"><Link style={styledLink} to='/men/'>Women</Link> <FiChevronRight/>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li style={styledLink}>soso</li>
-                                            <li style={styledLink}  >lolo</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                     <li> Fashion <FiChevronDown className="down-icon"/>
-                        <div className="dropdown-links">
-                            <ul>
-                                <li className="hover-me"><Link style={{ color: 'black' }} to='/men/'>Men</Link> <FiChevronRight/>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li style={{ color: 'black' }}>soso</li>
-                                            <li style={{ color: 'black' }}  >lolo</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li className="hover-me"><Link style={{ color: 'black' }} to='/men/'>Women</Link> <FiChevronRight/>
-                                    <div className="dropdown-down-links">
-                                        <ul>
-                                            <li style={{ color: 'black' }}>soso</li>
-                                            <li style={{ color: 'black' }}  >lolo</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> 
-                </ul>
 
-                <div className="sign-in"><a href="/Login"> SIGN IN </a></div>
+                <div className="inner-navbar">
+                    <ul className="navlinks">
+                        <li><a href="">TOP CLOTHING</a>
+                            <div className="dropdown-links">
+                                <ul>
+                                    <li><Link to="/shirts">tunic</Link></li>
+                                    <li><Link to="/blouse">blouse</Link></li>
+                                    <li><Link to="/vest">vest</Link></li>
+                                    <li><Link to="/knitwear">knitwear</Link></li>
+                                    <li><Link to="/sweatshirt">sweatshirt</Link></li>
+                                    <li><Link to="/tshirt">T-shirt</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="">BOTTOM CLOTHING</a>
+                            <div className="dropdown-links">
+                                <ul>
+                                    <li><Link to="/skirt">skirt</Link></li>
+                                    <li><Link to="/trousers">trousers</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="">HIJAB DRESS</a>
+                            <div className="dropdown-links">
+                            <ul>
+                                <li><Link to="/patterned-dress">patterned dress</Link></li>
+                                <li><Link to="/straight-dress">straight dress</Link></li>
+                                <li><Link to="/lace-dress">lace dress</Link></li>
+                                <li><Link to="/shirt-dress">shirt dress</Link></li>
+                            </ul>
+                            </div>
+                        </li>
+                        <li><a href="">OUTERWEAR</a>
+                            <div className="dropdown-links">
+                                <ul>
+                                    <li><Link to="/container">container</Link></li>
+                                    <li><Link to="/trencher">trencher</Link></li>
+                                    <li><Link to="/coat">coat</Link></li>
+                                    <li><Link to="/jacket">jacket</Link></li>
+                                    <li><Link to="/kimono">kimono</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="">FOOTWEAR</a>
+                            <div className="dropdown-links">
+                                <ul>
+                                    <li><Link to="/heels">heels</Link></li>
+                                    <li><Link to="/shoes">shoes</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="">ACCESSORIES</a>
+                            <div className="dropdown-links">
+                                <ul>
+                                    <li><Link to="/belts">belts</Link></li>
+                                    <li><Link to="/watches">watches</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+
+                {/* <div className="sign-in"><a href="/Login"> SIGN IN </a></div>
     
-                <button type="" onClick={() => setStatus(!isOpen)} className="cart-icon-icon"> <IoIosCart size={30}/></button>
+                <button type="" onClick={() => setStatus(!isOpen)} className="cart-icon-icon"> <IoIosCart size={30}/></button> */}
               
 
-                <div className={'menu-cart ' + tata}>
+                {/* <div className={'menu-cart ' + tata}>
 
                     <div className="cart-item-container">
                         <img style={{width: '25%', height: '100%'}} src={image9} alt=""/>
@@ -134,10 +124,22 @@ export default function Navbar(props) {
                         <div className="bt11"> <a href="/checkout">CheckOut</a></div>
                         <div className="bt22"><a href="/cart">View Cart</a></div>
                     </div>
-                </div>
+                </div> 
                 
-            </nav>
-        </div>
+                
+                
+                      <script >
+                        window.addEventListener("scroll", function() {
+                            let navbar = document.getElementById('navbar')
+                            if(window.pageYOffset > 0) {
+                            navbar.classList.add("white");
+                            } else {
+                            navbar.classList.remove("white")
+                            }
+                        })
+                        </script>
+                
+                */}
     
         </>    
     )

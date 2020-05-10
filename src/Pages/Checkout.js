@@ -48,7 +48,7 @@ export default function Checkout() {
     ['background-color']: 'white',
     ['border-bottom']: '0px',
     ['font-size']: '30px',
-     ['max-width']: '40rem',
+    ['max-width']: '40rem',
   }
 
   const cardInfo = {
@@ -74,16 +74,15 @@ export default function Checkout() {
     }
 
     const styledTextArea = {
-       ["margin-right"]: "25px",
-       ["margin-bottom"]: "25px",
-       ["width"]: "70%",
-       ["height"]: "px",
+      ["margin-right"]: "25px",
+      ["margin-bottom"]: "25px",
+      ["width"]: "70%",
+      ["height"]: "px",
      };
     
     return (
       <>
         <Bar />
-        <div className="checkout-page-container">
           <section className="checkout-accordion-container">
             <Accordion style={styledAccordion} defaultActiveKey="0">
               <Card style={styledCard}>
@@ -368,8 +367,8 @@ export default function Checkout() {
               </Card>
             </Accordion>
           </section>
-          <LayoutCart />
-        </div>
+           <LayoutCart />
+
       </>
     );
 }

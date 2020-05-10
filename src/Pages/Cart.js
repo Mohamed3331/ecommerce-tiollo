@@ -1,24 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import image2 from '../Images/main.webp'
 import {Link} from 'react-router-dom'
 import NavBar from '../Components/Navbar'
 import Bar from '../Components/Bar'
-// import "bootstrap/dist/css/bootstrap.min.css";
+import {ProductContext} from '../context'
 import Table from "react-bootstrap/Table";
-import { AiFillMinusCircle } from 'react-icons/ai';
-import { AiOutlineDownSquare } from 'react-icons/ai';
-import { AiOutlineUpSquare } from 'react-icons/ai';
-import image9 from '../Images/main.webp'
+import CartItem from '../Components/CartItem'
 
-export default function Cart() {
-      const styledTD = {
-       ["font-size"]: "20px",
-       ["font-weight"]: "600"
-      }
+export default class Cart extends Component {
+    
+  static contextType = ProductContext
 
-      const styledRemoveButton = {
-       ["margin-left"]: "8px",
-      }
+     
+
+    render() {
+      
+    const { cart, incrementItem, decrementItem, subTotal, removeItem } = this.context  
     
     return (
       <>
@@ -37,19 +34,27 @@ export default function Cart() {
                 <th>Total</th>
               </tr>
             </thead>
-
             <tbody>
-              <tr>
-                <td width="20%"> <img style={{width: '50%', height: '15%'}} src={image9} alt=""/> </td>
-                <td width="50%">  MENSWEAR | BERTIE SHORT SLEEVE TEE, GREY</td>
-                <td>£44.00</td>
-                <td style={styledTD}> <AiOutlineDownSquare className="ArrowDropdownCircle" size={30}/> 1 <AiOutlineUpSquare className="ArrowDropupCircle" size={30}/> </td>
-                <td>£44.00 <AiFillMinusCircle  style={styledRemoveButton} size={20}/> </td>
-              </tr>
+            {cart.map(item => (
+              <CartItem
+                key={item.id}
+                cartItem={item}
+                increment={incrementItem}
+                decrement={decrementItem}
+                remove={removeItem}
+              />
+            ))}
             </tbody>
-
           </table>
         </div>
+        <div className="cart-subtotal-price">Subtotal Before Delivery Charges : {subTotal} </div>
+        <hr className="cart-subtotal-price-breakline"/> 
+        <div  className="cart-subtotal-price-buttons">
+          <button className="cart-subtotal-price-clearcart-button">Clear Cart</button>
+          <button className="cart-subtotal-price-checkout-button"><a href="/Checkout">Checkout</a></button>
+        </div>
+
       </>
     );
+  }  
 }

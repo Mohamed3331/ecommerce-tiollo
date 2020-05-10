@@ -31,9 +31,9 @@ export default class SingleProduct extends Component {
         const panel2 = this.state.isOpenSecond === true ? closedPanel : activePanel
         const panel3 = this.state.isOpenThird === true ? closedPanel : activePanel
     
-        const { getProduct, getCardItem } = this.context
+        const { getProduct, getCardItem, cart} = this.context
         const product = getProduct(this.state.id)
-
+        
         if (!product) {
             return ( 
                 <div className="error">
@@ -49,16 +49,18 @@ export default class SingleProduct extends Component {
 
                 <section className="top-container">
                     <div className="container-image">
-                        <img src={image1} alt=""/>
-                        <img src={image1} alt=""/>
-                        <img src={image1} alt=""/>
+                        <img src={product.images[0]} alt=""/>
+                        <img src={product.images[1] || product.images[0]} alt=""/>
+                        <img src={product.images[2] || product.images[0]} alt=""/>
+                        <img src={product.images[3] || product.images[0]} alt=""/>
                     </div>
+
                     <div className="container-information">
-                        <div className="information-text">Menswear | Brushed Cotton Chino, Cream</div>
+                        <div className="information-text"> {`OUTWEAR | ${product.name}`} </div>
                         <div className="product-break-line"></div>
-                        <div className="product-price-number">$89.00</div>
+                        <div className="product-price-number">{`$ ${product.price}`}</div>
                         <div className="product-text-size"> <GoTag className="gotag-logo" size={20}/> all sizes will be provided at the delivery </div>
-                        <a href="#" class="myButton-cart">Add to cart</a>
+                        <button className="myButton-cart" onClick={() => getCardItem(this.state.id)}> Add to cart </button>
                         <div className="accordion-container">
                             <button className="accordion" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Section 1</button>
                             <div className="panel"  style={panel1}>
@@ -76,8 +78,8 @@ export default class SingleProduct extends Component {
                             </div>
                         </div>
                     </div>
-                    
-                </section>
+                   
+                </section>      
            </>
         )
     }

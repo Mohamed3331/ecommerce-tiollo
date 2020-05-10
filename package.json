@@ -9,6 +9,7 @@
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
     "contentful": "^7.14.2",
+    "contentful-management": "^5.26.0",
     "firebase": "^7.14.2",
     "formik": "^2.1.4",
     "light-modal": "^1.2.1",

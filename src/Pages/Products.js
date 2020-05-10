@@ -16,10 +16,10 @@ export default class Products extends Component {
     static contextType = ProductContext
 
     render() {
-        console.log(this.state.slug);
 
         const {getProducts} = this.context
         let products = getProducts(this.state.slug)
+        
         if (!products) {
             return ( 
                 <div className="error">

@@ -18,7 +18,7 @@ function App() {
         <Route path="/cart" component={Cart}/> 
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/> 
-        <Route exact path="/checkout" component={CheckOut}/> 
+        <Route exact path="/checkout" component={CheckOut} /> 
         <Route exact path="/:slug" render={props => <Products key={props.match.params.term} {...props} />}/>
         <Route exact path="/:slug/:id" component={SingleProduct}/>  
         {/* <Route component={Error}/> */}
