@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
 
 import Navbar from '../Components/Navbar'

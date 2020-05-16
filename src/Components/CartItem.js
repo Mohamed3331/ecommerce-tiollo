@@ -1,5 +1,4 @@
 import React from 'react'
-import {ProductContext} from '../context'
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { AiOutlineDownSquare } from 'react-icons/ai';
 import { AiOutlineUpSquare } from 'react-icons/ai';

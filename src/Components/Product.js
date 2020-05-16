@@ -2,14 +2,15 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Product({product}) {
-    const {name,id,slug,images,price} = product    
+    const {name,id,slug,images,price,quantity} = product    
 
     return (
     <>
         <section className="productlist">
             <div className="productlist-center">
                 <div className="product-card">
-                    <div className="badge">Hot</div>
+                    {/* <div className="badge">Hot</div> */}
+                    {quantity > 0 ? <div></div> : <div class="ribbon ribbon-top-left"><span>Out of Stock</span></div> }
                         <div className="product-tumb">
                          <Link to={`/${slug}/${id}`}> <img src={images[0]} alt=""/>  </Link>
                         </div>

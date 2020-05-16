@@ -4,6 +4,7 @@ import app from './firebase'
 import * as firebase from 'firebase/app'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { createClient } from "contentful-management";
+import validator from "email-validator";
 
 const ProductContext = React.createContext()
 
@@ -186,11 +187,17 @@ class ProductProvider extends Component {
     });
   }
 
+  emailValidator = (email) => {
+    if (validator.validate(email)) {
+      console.log(email);
+    }
+  }
+
   render() {
     
     return (
       <>
-        <ProductContext.Provider value={{...this.state ,removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
+        <ProductContext.Provider value={{...this.state ,emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
           {this.props.children}
         </ProductContext.Provider>
 

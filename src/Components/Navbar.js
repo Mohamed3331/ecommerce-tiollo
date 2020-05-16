@@ -1,13 +1,31 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom'
-import { IoIosCart } from 'react-icons/io';
-import image15 from '../Images/main.webp'
+import {FaShoppingBag} from 'react-icons/fa'
+import $ from "jquery"; 
+import SideCart from './SideCart'
 
-
-export default function Navbar(props) {
+export default function Navbar({NavWhite}) {
     const [isOpen, setStatus] = useState(false)
-    
+
     const tata = isOpen === true ? "active-cart" : ""
+
+    useEffect(() => {
+      $(function () {
+        $(document).scroll(function () {
+          var $nav = $(".navbar")
+
+            window.addEventListener("scroll", function() {
+                           $nav.toggleClass('WhiteNav', $(this).scrollTop() > $nav.height())
+                        })
+
+          // if(window.pageYOffset > 0) {
+          //     $nav.toggleClass('WhiteNav')
+          //   } else {
+          //   $nav.toggleClass("transparentNav")
+          //   }
+        })
+      })
+    })
 
     const styledLink = {
         ['text-decoration']: 'none',
@@ -25,17 +43,16 @@ export default function Navbar(props) {
         ['transform']:  'translateY(15px)',
         ['font-size']: '14px'
     }
+  return (       
+    <>    
+      <div className={"navbar " + NavWhite} >
+        <div className="logo">
+          <a href="">Tiollo</a>
+        </div>
 
-    return (       
-        <>    
-            <div className={"navbar " + props.NavWhite} >
-                <div className="logo">
-                    <a href="">Tiollo</a>
-                </div>
-
-                <div className="inner-navbar">
-                    <ul className="navlinks">
-                        <li><a href="">TOP CLOTHING</a>
+        <div className="inner-navbar">
+          <ul className="navlinks">
+              <li>TOP CLOTHING
                             <div className="dropdown-links">
                                 <ul>
                                     <li><Link to="/shirts">tunic</Link></li>
@@ -46,16 +63,16 @@ export default function Navbar(props) {
                                     <li><Link to="/tshirt">T-shirt</Link></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li><a href="">BOTTOM CLOTHING</a>
+              </li>
+              <li>BOTTOM CLOTHING
                             <div className="dropdown-links">
                                 <ul>
                                     <li><Link to="/skirt">skirt</Link></li>
                                     <li><Link to="/trousers">trousers</Link></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li><a href="">HIJAB DRESS</a>
+              </li>
+              <li>HIJAB DRESS
                             <div className="dropdown-links">
                             <ul>
                                 <li><Link to="/patterned-dress">patterned dress</Link></li>
@@ -64,8 +81,8 @@ export default function Navbar(props) {
                                 <li><Link to="/shirt-dress">shirt dress</Link></li>
                             </ul>
                             </div>
-                        </li>
-                        <li><a href="">OUTERWEAR</a>
+              </li>
+              <li>OUTERWEAR
                             <div className="dropdown-links">
                                 <ul>
                                     <li><Link to="/container">container</Link></li>
@@ -75,59 +92,44 @@ export default function Navbar(props) {
                                     <li><Link to="/kimono">kimono</Link></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li><a href="">FOOTWEAR</a>
+              </li>
+              <li>FOOTWEAR
                             <div className="dropdown-links">
                                 <ul>
                                     <li><Link to="/heels">heels</Link></li>
                                     <li><Link to="/shoes">shoes</Link></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li><a href="">ACCESSORIES</a>
+              </li>
+              <li>ACCESSORIES
                             <div className="dropdown-links">
                                 <ul>
                                     <li><Link to="/belts">belts</Link></li>
                                     <li><Link to="/watches">watches</Link></li>
                                 </ul>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            
+              </li>
+            </ul>
+        </div>
 
-                {/* <div className="sign-in"><a href="/Login"> SIGN IN </a></div>
-    
-                <button type="" onClick={() => setStatus(!isOpen)} className="cart-icon-icon"> <IoIosCart size={30}/></button> */}
-              
+        <div className="cart-icon-icon-container"> <Link to="/cart"> <FaShoppingBag color="black" size={22}/> Cart 3 </Link> </div>
+        {/* <SideCart isOpen={tata}/> */}
+        {/* onClick={() => setStatus(!isOpen)} */}
+      </div>
+    </>    
+  )
+}
 
-                {/* <div className={'menu-cart ' + tata}>
 
-                    <div className="cart-item-container">
-                        <img style={{width: '25%', height: '100%'}} src={image9} alt=""/>
-                            <div style={styledProductText}>MEN-TAYLOR BRAND
-                                <div style={styledProductPrice}>50%</div>
-                            </div>   
-                    </div>
-                    <hr/>
-                     <div className="cart-item-container">
-                        <img style={{width: '25%', height: '100%'}} src={image9} alt=""/>
-                            <div style={styledProductText}>MEN-TAYLOR BRAND
-                                <div style={styledProductPrice}>50%</div>
-                            </div>   
-                    </div>
-                    <hr/>
-   
-                    <div className="cart-buttons">
-                        <div className="bt11"> <a href="/checkout">CheckOut</a></div>
-                        <div className="bt22"><a href="/cart">View Cart</a></div>
-                    </div>
-                </div> 
-                
-                
-                
+
+
+
+
+
+
+
+
+{/*
                       <script >
                         window.addEventListener("scroll", function() {
                             let navbar = document.getElementById('navbar')
@@ -138,11 +140,4 @@ export default function Navbar(props) {
                             }
                         })
                         </script>
-                
-                */}
-    
-        </>    
-    )
-}
-
- 
+*/}

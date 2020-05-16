@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import LayoutCart from '../Components/Layoutcart'
 import Accordion from 'react-bootstrap/Accordion'
 import Form from "react-bootstrap/Form";
@@ -11,7 +11,9 @@ import { MdCheckCircle } from 'react-icons/md';
 import { IoMdAlert } from 'react-icons/io';
 import { AiOutlinePound } from 'react-icons/ai';
 import { Formik, Field, } from 'formik';
+import {ProductContext} from '../context'
 import * as yup from "yup";
+import $ from "jquery"; 
 
   const schema = yup.object({
     firstName: yup.string().required(),
@@ -27,9 +29,14 @@ import * as yup from "yup";
 
 export default function Checkout() {
 
-  const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [form, setForm] = useState(null);
+
+  const {products,emailValidator} = useContext(ProductContext);
+  console.log(form);
   
   
+
   const styledAccordion = {
     ['padding']: '0px',
     ['background-color']: 'white'
@@ -85,12 +92,9 @@ export default function Checkout() {
         <Bar />
           <section className="checkout-accordion-container">
             <Accordion style={styledAccordion} defaultActiveKey="0">
+            
               <Card style={styledCard}>
-                <Accordion.Toggle
-                  as={Card.Header}
-                  style={cardHeader}
-                  eventKey="0"
-                >
+                <Accordion.Toggle as={Card.Header} style={cardHeader} eventKey="0" >
                   <MdCheckCircle size={30} /> Customer
                 </Accordion.Toggle>
                 <Accordion.Collapse style={cardInfo} eventKey="0">
@@ -104,12 +108,8 @@ export default function Checkout() {
                             {" "}
                             <Form.Label>Email address</Form.Label>{" "}
                           </div>
-                          <Form.Control
-                            style={styledForm}
-                            onChange={event => setTitle(event.target.value)}
-                            type="email"
-                          />
-                          <Button className="button-form" variant="dark">
+                          <Form.Control style={styledForm} onChange={event => setEmail(event.target.value)} type="email"/>
+                          <Button onClick={() => emailValidator(email)} className="button-email-form" variant="dark">
                             Continue as guest
                           </Button>{" "}
                           <Form.Text className="text-muted">
@@ -124,21 +124,13 @@ export default function Checkout() {
               <hr />
 
               <Card style={styledCard}>
-                <Accordion.Toggle
-                  as={Card.Header}
-                  style={cardHeader}
-                  eventKey="1"
-                >
+                <Accordion.Toggle as={Card.Header} style={cardHeader} eventKey="1" >
                   <MdCheckCircle size={30} /> Shipping
                 </Accordion.Toggle>
                 <Accordion.Collapse style={cardInfo} eventKey="1">
                   <Card.Body>
                     Shipping Address.
-                    <Formik
-                      validationSchema={schema}
-                      onSubmit={console.log}
-                      initialValues={{ firstName: "Mark", lastName: "Otto" }}
-                    >
+                    <Formik validationSchema={schema} onSubmit={setForm} initialValues={{ firstName: "Mark", lastName: "Otto" }}>
                       {({
                         handleSubmit,
                         handleChange,
@@ -150,11 +142,7 @@ export default function Checkout() {
                       }) => (
                         <Form noValidate onSubmit={handleSubmit}>
                           <Form.Row>
-                            <Form.Group
-                              style={styledInput}
-                              md="4"
-                              controlId="validationFormik01"
-                            >
+                            <Form.Group style={styledInput} md="4" controlId="validationFormik01">
                               <Form.Label>First name</Form.Label>
                               <Form.Control
                                 type="text"
@@ -168,11 +156,7 @@ export default function Checkout() {
                               </Form.Control.Feedback>
                             </Form.Group>
 
-                            <Form.Group
-                              style={styledInput}
-                              md="4"
-                              controlId="validationFormik02"
-                            >
+                            <Form.Group style={styledInput} md="4" controlId="validationFormik02">
                               <Form.Label>Last name</Form.Label>
                               <Form.Control
                                 type="text"
@@ -325,7 +309,7 @@ export default function Checkout() {
                             </Form.Group>
                           </Form.Row>
 
-                          <Button type="submit">Submit form</Button>
+                          <Button className="form-submit-button" type="submit">Submit Shipping Info.</Button>
                         </Form>
                       )}
                     </Formik>
@@ -351,13 +335,8 @@ export default function Checkout() {
                       <Form>
                         {["checkbox"].map(type => (
                           <div key={`custom-${type}`} className="mb-3">
-                            <Form.Check
-                              custom
-                              type={type}
-                              id={`custom-${type}`}
-                              label={`Payment cash on Delivery `}
-                            />{" "}
-                            <AiOutlinePound size={25} />
+                            <Form.Check custom type={type} id={`custom-${type}`} label={`Payment cash on Delivery `}/>{" "}
+                            
                           </div>
                         ))}
                       </Form>

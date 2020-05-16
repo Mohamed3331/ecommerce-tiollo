@@ -35,7 +35,7 @@ export default class Cart extends Component {
               </tr>
             </thead>
             <tbody>
-            {cart.map(item => (
+            {cart.map((item) => (
               <CartItem
                 key={item.id}
                 cartItem={item}
