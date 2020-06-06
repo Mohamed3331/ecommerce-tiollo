@@ -2,37 +2,32 @@ import React, { Component } from 'react'
 import image9 from '../Images/main.webp'
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";  
-import image2 from '../Images/main.webp'
 import {ProductContext} from '../context'
+import { FaCheck } from 'react-icons/fa';
 
-//   function MyVerticallyCenteredModal(props) {
+  function MyVerticallyCenteredModal(props) {
 
-//   return (
-//     <Modal
-//       {...props}
-//       size="lg"
-//       aria-labelledby="contained-modal-title-vcenter"
-//       centered
-//     >
-//       <Modal.Header closeButton>
-//         <Modal.Title id="contained-modal-title-vcenter">
-//           Modal heading
-//         </Modal.Title>
-//       </Modal.Header>
-//       <Modal.Body>
-//         <h4>Centered Modal</h4>
-//         <p>
-//           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-//           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-//           consectetur ac, vestibulum at eros.
-//         </p>
-//       </Modal.Body>
-//       <Modal.Footer>
-//         <Button onClick={props.onHide}>Close</Button>
-//       </Modal.Footer>
-//     </Modal>
-//   );
-// }
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      
+      <Modal.Body>
+      <br/>
+        <br/>
+        <h2> <FaCheck size={30} color={"green"}/> Order Successfully </h2> 
+        <br/>
+        <br/>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 export default class Layoutcart extends Component {
   state = {
@@ -43,7 +38,7 @@ export default class Layoutcart extends Component {
 
   render() {
 
-    const { cart, shipping, subTotal, total } = this.context  
+    const { cart, shipping, subTotal, total, placeOrder } = this.context  
 
     return (
       <>
@@ -83,7 +78,13 @@ export default class Layoutcart extends Component {
               </div>
 
             </section>
+            <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button>
+            
           </article>
+           <MyVerticallyCenteredModal
+          show={this.state.modalShow}
+          onHide={() => this.setState({modalShow: false})}
+          />
         </div>
       </>
     );
@@ -91,7 +92,4 @@ export default class Layoutcart extends Component {
 }
 
 
-    // <MyVerticallyCenteredModal
-    //       show={modalShow}
-    //       onHide={() => this.state.modalShow({!modalShow})}
-    //     />
+   

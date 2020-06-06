@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import LayoutCart from '../Components/Layoutcart'
 import Accordion from 'react-bootstrap/Accordion'
 import Form from "react-bootstrap/Form";
@@ -12,8 +12,10 @@ import { IoMdAlert } from 'react-icons/io';
 import { AiOutlinePound } from 'react-icons/ai';
 import { Formik, Field, } from 'formik';
 import {ProductContext} from '../context'
+import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import * as yup from "yup";
 import $ from "jquery"; 
+import { FaCheck } from 'react-icons/fa';
 
   const schema = yup.object({
     firstName: yup.string().required(),
@@ -27,15 +29,17 @@ import $ from "jquery";
     state: yup.string().optional()
   });
 
+
 export default function Checkout() {
 
-  const [email, setEmail] = useState("");
-  const [form, setForm] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [checked1, setChecked1] = useState("black");
+  const [checked2, setChecked2] = useState("black");
+  const [checked3, setChecked3] = useState("black");
+  const [toggle, setToggle] = useState("0")
+  
 
-  const {products,emailValidator} = useContext(ProductContext);
-  console.log(form);
-  
-  
+  const {products ,emailValidator, updateOrderDetails} = useContext(ProductContext);
 
   const styledAccordion = {
     ['padding']: '0px',
@@ -91,16 +95,17 @@ export default function Checkout() {
       <>
         <Bar />
           <section className="checkout-accordion-container">
-            <Accordion style={styledAccordion} defaultActiveKey="0">
+            <Accordion style={styledAccordion} activeKey={toggle} >
             
               <Card style={styledCard}>
-                <Accordion.Toggle as={Card.Header} style={cardHeader} eventKey="0" >
-                  <MdCheckCircle size={30} /> Customer
+
+                <Accordion.Toggle onClick={() => setToggle("0")} as={Card.Header} style={cardHeader} eventKey="0" >
+                  <MdCheckCircle color={checked1} size={30} /> Customer <small>  </small>
                 </Accordion.Toggle>
-                <Accordion.Collapse style={cardInfo} eventKey="0">
+                
+                <Accordion.Collapse style={cardInfo} eventKey="0" >
                   <Card.Body>
-                    Checking out as a Guest? You'll be able to save your details
-                    to create an account with us later.
+                    Checking out as a Guest? You'll be able to save your details to create an account with us later.
                     <div style={styledDiv}>
                       <Form>
                         <Form.Group controlId="formBasicEmail">
@@ -109,7 +114,7 @@ export default function Checkout() {
                             <Form.Label>Email address</Form.Label>{" "}
                           </div>
                           <Form.Control style={styledForm} onChange={event => setEmail(event.target.value)} type="email"/>
-                          <Button onClick={() => emailValidator(email)} className="button-email-form" variant="dark">
+                          <Button onClick={ () => {emailValidator(email); setChecked1("green"); setToggle("1")} } className="button-email-form" variant="dark">
                             Continue as guest
                           </Button>{" "}
                           <Form.Text className="text-muted">
@@ -124,13 +129,15 @@ export default function Checkout() {
               <hr />
 
               <Card style={styledCard}>
-                <Accordion.Toggle as={Card.Header} style={cardHeader} eventKey="1" >
-                  <MdCheckCircle size={30} /> Shipping
+ 
+                <Accordion.Toggle onClick={() => setToggle("1")} as={Card.Header} style={cardHeader} eventKey="1" >
+                  <MdCheckCircle color={checked2} size={30} /> Shipping
                 </Accordion.Toggle>
+
                 <Accordion.Collapse style={cardInfo} eventKey="1">
                   <Card.Body>
                     Shipping Address.
-                    <Formik validationSchema={schema} onSubmit={setForm} initialValues={{ firstName: "Mark", lastName: "Otto" }}>
+                    <Formik validationSchema={schema} onSubmit={updateOrderDetails} initialValues={{ firstName: "", lastName: "", address1: "", address2: "", city: "", state: "", phoneNumber: "", postalCode: "", comment: ""}}>
                       {({
                         handleSubmit,
                         handleChange,
@@ -309,7 +316,7 @@ export default function Checkout() {
                             </Form.Group>
                           </Form.Row>
 
-                          <Button className="form-submit-button" type="submit">Submit Shipping Info.</Button>
+                          <Button onClick={() => {setChecked2("green"); setToggle("2")}} className="form-submit-button" type="submit">Submit Shipping Info.</Button>
                         </Form>
                       )}
                     </Formik>
@@ -319,24 +326,21 @@ export default function Checkout() {
               <hr />
 
               <Card style={styledCard}>
-                <Accordion.Toggle
-                  as={Card.Header}
-                  style={cardHeader}
-                  eventKey="2"
-                >
-                  <MdCheckCircle size={30} /> Payment
+
+                <Accordion.Toggle onClick={() => setToggle("2")} as={Card.Header} style={cardHeader} eventKey="2">
+                  <MdCheckCircle color={checked3} size={30} /> Payment
                 </Accordion.Toggle>
+
                 <Accordion.Collapse style={cardInfo} eventKey="2">
                   <Card.Body>
                     <IoMdAlert size={30} color={"red"} /> Unfortunately payments
-                    via credit cards are suspended temporarly. Only cash on
-                    delivery are accepted.
+                    via credit cards are suspended temporarly. <strong> Only cash on
+                    delivery are accepted.</strong>
                     <div style={styledDiv}>
                       <Form>
                         {["checkbox"].map(type => (
                           <div key={`custom-${type}`} className="mb-3">
-                            <Form.Check custom type={type} id={`custom-${type}`} label={`Payment cash on Delivery `}/>{" "}
-                            
+                            <Form.Check onClick={() => {setChecked3("green")}} custom type={type} id={`custom-${type}`} label={`Payment cash on Delivery `}/>{" "}
                           </div>
                         ))}
                       </Form>
@@ -347,7 +351,6 @@ export default function Checkout() {
             </Accordion>
           </section>
            <LayoutCart />
-
       </>
     );
 }

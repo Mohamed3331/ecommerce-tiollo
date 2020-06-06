@@ -2,7 +2,18 @@ import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom'
 import {FaShoppingBag} from 'react-icons/fa'
 import $ from "jquery"; 
-import SideCart from './SideCart'
+import Overlay from 'react-bootstrap/Overlay'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
+
+function renderTooltip(props) {
+  return (
+    <Tooltip id="button-tooltip" {...props}>
+      View you Cart
+    </Tooltip>
+  );
+}
+
 
 export default function Navbar({NavWhite}) {
     const [isOpen, setStatus] = useState(false)
@@ -15,14 +26,8 @@ export default function Navbar({NavWhite}) {
           var $nav = $(".navbar")
 
             window.addEventListener("scroll", function() {
-                           $nav.toggleClass('WhiteNav', $(this).scrollTop() > $nav.height())
-                        })
-
-          // if(window.pageYOffset > 0) {
-          //     $nav.toggleClass('WhiteNav')
-          //   } else {
-          //   $nav.toggleClass("transparentNav")
-          //   }
+              $nav.toggleClass('WhiteNav', $(this).scrollTop() > $nav.height())
+            })
         })
       })
     })
@@ -47,7 +52,7 @@ export default function Navbar({NavWhite}) {
     <>    
       <div className={"navbar " + NavWhite} >
         <div className="logo">
-          <a href="">Tiollo</a>
+          <a href="/">Tiollo</a>
         </div>
 
         <div className="inner-navbar">
@@ -55,66 +60,81 @@ export default function Navbar({NavWhite}) {
               <li>TOP CLOTHING
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link to="/shirts">tunic</Link></li>
-                                    <li><Link to="/blouse">blouse</Link></li>
-                                    <li><Link to="/vest">vest</Link></li>
-                                    <li><Link to="/knitwear">knitwear</Link></li>
-                                    <li><Link to="/sweatshirt">sweatshirt</Link></li>
-                                    <li><Link to="/tshirt">T-shirt</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/tunic">tunic</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/blouse">blouse</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/vest">vest</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/knitwear">knitwear</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/sweatshirt">sweatshirt</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/tshirt">T-shirt</Link></li>
                                 </ul>
                             </div>
               </li>
               <li>BOTTOM CLOTHING
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link to="/skirt">skirt</Link></li>
-                                    <li><Link to="/trousers">trousers</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/skirt">skirt</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/trousers">trousers</Link></li>
                                 </ul>
                             </div>
               </li>
               <li>HIJAB DRESS
                             <div className="dropdown-links">
                             <ul>
-                                <li><Link to="/patterned-dress">patterned dress</Link></li>
-                                <li><Link to="/straight-dress">straight dress</Link></li>
-                                <li><Link to="/lace-dress">lace dress</Link></li>
-                                <li><Link to="/shirt-dress">shirt dress</Link></li>
+                                <li><Link style={{textDecoration: 'none'}} to="/patterned-dress">patterned dress</Link></li>
+                                <li><Link style={{textDecoration: 'none'}} to="/straight-dress">straight dress</Link></li>
+                                <li><Link style={{textDecoration: 'none'}} to="/lace-dress">lace dress</Link></li>
+                                <li><Link style={{textDecoration: 'none'}} to="/shirt-dress">shirt dress</Link></li>
                             </ul>
                             </div>
               </li>
               <li>OUTERWEAR
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link to="/container">container</Link></li>
-                                    <li><Link to="/trencher">trencher</Link></li>
-                                    <li><Link to="/coat">coat</Link></li>
-                                    <li><Link to="/jacket">jacket</Link></li>
-                                    <li><Link to="/kimono">kimono</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/container">container</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/trencher">trencher</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/coat">coat</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/jacket">jacket</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/kimono">kimono</Link></li>
                                 </ul>
                             </div>
               </li>
               <li>FOOTWEAR
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link to="/heels">heels</Link></li>
-                                    <li><Link to="/shoes">shoes</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/heels">heels</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/shoes">shoes</Link></li>
                                 </ul>
                             </div>
               </li>
               <li>ACCESSORIES
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link to="/belts">belts</Link></li>
-                                    <li><Link to="/watches">watches</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/belts">belts</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/watches">watches</Link></li>
                                 </ul>
                             </div>
               </li>
             </ul>
         </div>
 
-        <div className="cart-icon-icon-container"> <Link to="/cart"> <FaShoppingBag color="black" size={22}/> Cart 3 </Link> </div>
-        {/* <SideCart isOpen={tata}/> */}
-        {/* onClick={() => setStatus(!isOpen)} */}
+        <div className="burger">
+          <div className="burger-line1"></div>
+          <div className="burger-line2"></div>
+          <div className="burger-line3"></div>
+        </div>
+
+        <div className="cart-icon-icon-container"> <Link to="/cart">
+            <OverlayTrigger
+            placement="left"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderTooltip}
+            >
+      
+          <FaShoppingBag  color="black" size={25}/>
+        </OverlayTrigger>
+         
+         
+         </Link> </div>
       </div>
     </>    
   )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
-import image1 from '../Images/main.webp'
 import { GoTag } from 'react-icons/go';
 import { GoInfo } from 'react-icons/go';
 import Navbar from '../Components/Navbar'
@@ -14,6 +13,7 @@ export default class SingleProduct extends Component {
         isOpenFirst: true,
         isOpenSecond: true,
         isOpenThird: true,
+        added: false,
     }
 
     static contextType = ProductContext
@@ -34,7 +34,7 @@ export default class SingleProduct extends Component {
         const panel1 = this.state.isOpenFirst === true ? closedPanel : activePanel
         const panel2 = this.state.isOpenSecond === true ? closedPanel : activePanel
         const panel3 = this.state.isOpenThird === true ? closedPanel : activePanel
-    
+      
         const { getProduct, getCardItem, cart} = this.context
         const product = getProduct(this.state.id)
         
@@ -55,20 +55,20 @@ export default class SingleProduct extends Component {
                     <div className="container-image">
                         <img src={product.images[0]} alt=""/>
                         <img src={product.images[1] || product.images[0]} alt=""/>
-                        <img src={product.images[2] || product.images[0]} alt=""/>
-                        <img src={product.images[3] || product.images[0]} alt=""/>
+                        <img src={product.images[2] || null} alt=""/>
+                        <img src={product.images[3] || null} alt=""/>
                     </div>
 
                     <div className="container-information">
                         <div className="information-text"> {`OUTWEAR | ${product.name}`} </div>
                         <div className="information-text-break-line"><hr/></div>
-                        <div className="product-price-number">{`$ ${product.price}`}</div>
+                        <div className="product-price-number">{`E£ ${product.price}`}</div>
                         <div className="product-text-size"> <GoTag className="gotag-logo" size={20}/> all sizes will be provided at the delivery </div>
-                        <button className="myButton-cart" onClick={() => getCardItem(this.state.id)}> Add to cart </button>
+                        <button className="myButton-cart" onClick={() => {getCardItem(this.state.id); this.setState({added: true}); } }> { this.state.added === false ? 'Add to Cart' : 'Added'} </button>
                         <div className="accordion-container">
                             <button className="accordion-buttonn" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Information</button>
                             <div className="panel"  style={panel1}>
-                            <p>Mid length, linen and cotton mix dress with hidden side seam pockets. In a boxy cut with a D ring belt detail, a UK size 6 - 8 can expect a slouchy and relaxed fit whilst a UK size 14 will wear more fitted.</p>
+                            <p>{product.information}</p>
                             <p>One Size: Length: 119cm, Across Width (Bust): 54cm, Waist: 42", Sleeve: 11cm.</p>
                             <p>40% Cotton, 40% Viscose, 20% Polyester.</p>
                             </div>

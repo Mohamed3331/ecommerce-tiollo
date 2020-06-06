@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import image2 from '../Images/main.webp'
 import {Link} from 'react-router-dom'
 import NavBar from '../Components/Navbar'
 import Bar from '../Components/Bar'
@@ -15,7 +14,7 @@ export default class Cart extends Component {
 
     render() {
       
-    const { cart, incrementItem, decrementItem, subTotal, removeItem } = this.context  
+    const { cart, clearCart, incrementItem, decrementItem, subTotal, removeItem } = this.context  
     
     return (
       <>
@@ -50,8 +49,8 @@ export default class Cart extends Component {
         <div className="cart-subtotal-price">Subtotal Before Delivery Charges : {subTotal} </div>
         <hr className="cart-subtotal-price-breakline"/> 
         <div  className="cart-subtotal-price-buttons">
-          <button className="cart-subtotal-price-clearcart-button">Clear Cart</button>
-          <button className="cart-subtotal-price-checkout-button"><a href="/Checkout">Checkout</a></button>
+          <button onClick={clearCart} className="cart-subtotal-price-clearcart-button">Clear Cart</button>
+          <Link style={{textDecoration: 'none'}} to="/checkout"> <button className="cart-subtotal-price-checkout-button"> Checkout </button> </Link>
         </div>
 
       </>

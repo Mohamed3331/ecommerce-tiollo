@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {ProductContext} from '../context'
-
 import Navbar from '../Components/Navbar'
 import Bar from '../Components/Bar'
 import ProductContainer from '../Components/ProductContainer'

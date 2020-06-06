@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Client from "./Contentful";
-import app from './firebase'
-import * as firebase from 'firebase/app'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { createClient } from "contentful-management";
 import validator from "email-validator";
+import { sendEmail } from "./Backend/Email";
+
 
 const ProductContext = React.createContext()
 
@@ -13,10 +13,9 @@ class ProductProvider extends Component {
 
   state = {
     products: [],
-    sortedProducts: [],
-    featuredProducts: [],
-    loading: true,
     cart: [],
+    maxPrice: 0,
+    minPrice: 0,
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
@@ -24,25 +23,14 @@ class ProductProvider extends Component {
     subTotal: 0,
     shipping: 0,
     total: 0,
-  };
-
-  uiConfig = {
-    signInFlow: "popup",
-    signInOptions: [
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID
-    ],
-    callbacks: {
-      signInSuccess: () => false
-    }
+    form: '',
+    email: ''
   }
 
   componentDidMount() {
     this.syncStorage()
     this.getTotals()
-    this.getData();
-    this.authWithFacebook()
-       
-    // this.updateEntry()
+    this.getData(); 
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -61,28 +49,21 @@ class ProductProvider extends Component {
     }
   }
 
-  authWithFacebook = async () => {
-
-    await firebase.auth().onAuthStateChanged((user) => {
-      this.setState({signedIn: user})
-    })
-  }
-
-  authSignOut() {
-    firebase.auth().signOut()
-  }
-
   getData = async () => {
     try {
       let response = await Client.getEntries({
-        content_type: "tiolloEcommerce"
+        content_type: "tiolloEcommerce",
+        order: "sys.createdAt"
       });
 
       let products = this.formatData(response.items);
+      let maxPrice = Math.max(...products.map(item => item.price));
+      let minPrice = Math.min(...products.map(item => item.price));
         
       this.setState({
         products: products,
-        sortedProducts: products,
+        maxPrice: maxPrice,
+        minPrice: minPrice
       });
 
     } catch (e) {
@@ -90,20 +71,21 @@ class ProductProvider extends Component {
    }
   };
   
-  // updateEntry = async () => {
-  //   const client = createClient({
-  //   accessToken: 'CFPAT-p_770xD2aZiFwQW9DLRI-4w_8jr0C2dA504-ISPLcxs'
-  //   })
+  updateEntry = async (id,count) => {
+    const client = createClient({
+    accessToken: process.env.REACT_APP_TOKEN_MANAGEMENT,
+    })
 
-  //   await client.getSpace('7zqu7ohvhyp1')
-  //   .then((space) => space.getEntry('3iKrdlkuwkfnDDeig4ZBn5'))
-  //   .then((entry) => {
-  //     entry.fields.quantity['en-US'] = 54
-  //     return entry.update()
-  //   })
-  //   .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
-  //   .catch(console.error)
-  // }
+    await client.getSpace(process.env.REACT_APP_API_SPACE)
+    .then((space) => space.getEntry(id))
+    .then((entry) => {
+      entry.fields.quantity['en-US'] = entry.fields.quantity['en-US'] - count
+      return entry.update()
+    })
+    .then((entry) => entry.publish())
+    .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
+    .catch(console.error)
+  }
 
   formatData(items) {
     let tempItems = items.map(item => {
@@ -189,23 +171,82 @@ class ProductProvider extends Component {
 
   emailValidator = (email) => {
     if (validator.validate(email)) {
-      console.log(email);
+      this.setState({email})
+    } else {
+      console.log('wrong bitch');
+      
     }
   }
 
+  updateOrderDetails = (form) => {
+    if (form) {
+      this.setState({form: form})
+     console.log('done ')
+    } else {
+      console.log('bitchin');  
+    }
+  }
+
+  placeOrder = () => {
+    const {email, form, total, subTotal, cart} = this.state
+
+    let hoho = []
+    let soso = cart.map((item) => {
+      hoho.push( ` ItemName: ${item.name} ` + ' &nbsp &nbsp ' + ` ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
+    })
+
+    if (this.state.email && this.state.form) {
+      sendEmail(email, JSON.stringify(form), total, subTotal, hoho)
+
+      cart.map(item => {
+        this.updateEntry(item.id,item.count)
+      })
+    } else {
+      alert('Please continue the checkout process')
+    }
+  }
+
+  filterRooms = (choice) => {
+
+    let tempRooms = [...this.state.products];
+
+    if (choice.value === 'newest') {
+      this.setState({
+        products: this.state.sortedProducts
+      })
+    }
+
+    if (choice.value === 'hightolow') {
+      tempRooms = tempRooms.sort((a, b) => (a.price < b.price) ? 1 : -1)
+      this.setState({
+        products: tempRooms
+      }) 
+    }
+
+    if (choice.value === 'lowtohigh') {
+      tempRooms = tempRooms.sort((a, b) => (a.price > b.price) ? 1 : -1)
+      this.setState({
+        products: tempRooms
+      })
+    }
+  }
+
+  clearCart = () => {
+    this.setState({
+      cart: []
+    })
+    window.location.reload()
+  }
+
   render() {
-    
+    console.log(this.state.products)
     return (
       <>
-        <ProductContext.Provider value={{...this.state ,emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
+        <ProductContext.Provider value={{...this.state ,clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
           {this.props.children}
         </ProductContext.Provider>
 
-        {/* {this.state.signedIn ? (
-          <div>signed in</div>
-        ) : (
-          <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
-        ) } */}
+ 
       </>
     );
   }
