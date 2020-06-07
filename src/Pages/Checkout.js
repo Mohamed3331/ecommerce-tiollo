@@ -1,21 +1,15 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import LayoutCart from '../Components/Layoutcart'
 import Accordion from 'react-bootstrap/Accordion'
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import Card from 'react-bootstrap/Card'
 import Button from "react-bootstrap/Button";
 import Bar from '../Components/Bar'
-import {Link} from 'react-router-dom'
 import { MdCheckCircle } from 'react-icons/md';
 import { IoMdAlert } from 'react-icons/io';
-import { AiOutlinePound } from 'react-icons/ai';
-import { Formik, Field, } from 'formik';
+import { Formik } from 'formik';
 import {ProductContext} from '../context'
-import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import * as yup from "yup";
-import $ from "jquery"; 
-import { FaCheck } from 'react-icons/fa';
 
   const schema = yup.object({
     firstName: yup.string().required(),
@@ -39,56 +33,56 @@ export default function Checkout() {
   const [toggle, setToggle] = useState("0")
   
 
-  const {products ,emailValidator, updateOrderDetails} = useContext(ProductContext);
+  const {emailValidator, updateOrderDetails} = useContext(ProductContext);
 
   const styledAccordion = {
-    ['padding']: '0px',
-    ['background-color']: 'white'
+    padding: '0px',
+    backgroundColor: 'white'
   }
 
   const styledCard = {
-    ['border']: '0px',
-    ['background-color']: 'white transparent',
-    ['width']: '80rem',
-    ['border-radius']: '0px',
-    ['border-bottom-width']: 'thin',
-    ['max-width']: '55rem',
+    border: '0px',
+    backgroundColor: 'white transparent',
+    width: '80rem',
+    marginRight: '0px',
+    borderBottomWidth: 'thin',
+    maxWidth: '55rem',
   }
 
   const cardHeader = {
-    ['background-color']: 'white',
-    ['border-bottom']: '0px',
-    ['font-size']: '30px',
-    ['max-width']: '40rem',
+    backgroundColor: 'white',
+    borderBottom: '0px',
+    fontSize: '30px',
+    maxWidth: '40rem',
   }
 
   const cardInfo = {
-    ['margin-bottom']: '20px',
-    ['margin-left']: '40px',
-    ['font-size']: '15px'
+    marginBottom: '20px',
+    marginLeft: '40px',
+    fontSize: '15px'
   }
 
   const styledDiv = {
-    ['margin-top']: '30px'
+    marginTop: '30px'
   }
 
     const styledForm = {
-      ["width"]: "50%",
-      ["height"]: "50px",
-      ["margin-right"]: "20px",
-      ["display"]: "inline"
+      width: "50%",
+      height: "50px",
+      marginRight: "20px",
+      display: "inline"
     };
 
     const styledInput = {
-      ["margin-right"]: "25px",
-      ["margin-bottom"]: "25px",
+      marginRight: "25px",
+      marginBottom: "25px",
     }
 
     const styledTextArea = {
-      ["margin-right"]: "25px",
-      ["margin-bottom"]: "25px",
-      ["width"]: "70%",
-      ["height"]: "px",
+      marginRight: "25px",
+      marginBottom: "25px",
+      width: "70%",
+      height: "px",
      };
     
     return (

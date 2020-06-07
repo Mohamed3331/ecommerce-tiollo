@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Client from "./Contentful";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { createClient } from "contentful-management";
 import validator from "email-validator";
 import { sendEmail } from "./Backend/Email";
@@ -191,8 +190,8 @@ class ProductProvider extends Component {
     const {email, form, total, subTotal, cart} = this.state
 
     let hoho = []
-    let soso = cart.map((item) => {
-      hoho.push( ` ItemName: ${item.name} ` + ' &nbsp &nbsp ' + ` ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
+    cart.map((item) => {
+      return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
     })
 
     if (this.state.email && this.state.form) {
@@ -239,7 +238,6 @@ class ProductProvider extends Component {
   }
 
   render() {
-    console.log(this.state.products)
     return (
       <>
         <ProductContext.Provider value={{...this.state ,clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>

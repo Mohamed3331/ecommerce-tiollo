@@ -381,7 +381,7 @@ transform: scale(1.1);
     margin-bottom: 18px;
 }
 
-.product-details h4 a {
+.product-details h4 {
     font-weight: 400;
     font-size: 14px;
     font-weight: bold;
@@ -394,7 +394,7 @@ transform: scale(1.1);
     transition: 0.3s;
 }
 
-.product-details h4 a:hover {
+.product-details h4:hover {
     color: #fbb72c;
 }
 

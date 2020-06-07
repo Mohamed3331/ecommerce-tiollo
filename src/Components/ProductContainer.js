@@ -1,7 +1,6 @@
 import React from "react";
 import { ProductContext } from "../context";
 import Filter from '../Components/ProductFilter'
-import ProductList from './ProductList'
 
 
 class RoomContainer extends React.Component {

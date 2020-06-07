@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import NavBar from '../Components/Navbar'
 import Bar from '../Components/Bar'
 import {ProductContext} from '../context'
-import Table from "react-bootstrap/Table";
 import CartItem from '../Components/CartItem'
 
 export default class Cart extends Component {

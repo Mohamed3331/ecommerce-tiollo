@@ -1,5 +1,5 @@
 import React from 'react'
-import image10 from '../Images/SPRING4.jpg'
+// import image10 from '../Images/SPRING4.jpg'
 
 export default function JumptronLanding() {
     return (

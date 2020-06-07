@@ -12,7 +12,7 @@ const options = [
 
 export default function Filter() {
 
-    const [filtering, setFiltering] = useState({})
+    // const [filtering, setFiltering] = useState({})
 
     const { filterRooms } = useContext(ProductContext);
 

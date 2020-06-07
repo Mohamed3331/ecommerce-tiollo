@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {Link} from 'react-router-dom'
 import {FaShoppingBag} from 'react-icons/fa'
 import $ from "jquery"; 
-import Overlay from 'react-bootstrap/Overlay'
+// import Overlay from 'react-bootstrap/Overlay'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 
@@ -16,9 +16,9 @@ function renderTooltip(props) {
 
 
 export default function Navbar({NavWhite}) {
-    const [isOpen, setStatus] = useState(false)
+    // const [isOpen, setStatus] = useState(false)
 
-    const tata = isOpen === true ? "active-cart" : ""
+    // const tata = isOpen === true ? "active-cart" : ""
 
     useEffect(() => {
       $(function () {
@@ -32,22 +32,23 @@ export default function Navbar({NavWhite}) {
       })
     })
 
-    const styledLink = {
-        ['text-decoration']: 'none',
-        ['color']: 'black'
-    }
+    // const styledLink = {
+    //     textDecoration: 'none',
+    //     color: 'black'
+    // }
 
-    const styledProductText= {
-        ['transform']:  'translateY(15px)',
-        ['margin-left']: '20px',
-        ['margin-bottom']: '20px',
-        ['font-size']: '14px'
-    }
+    // const styledProductText= {
+    //     transform:  'translateY(15px)',
+    //     marginLeft: '20px',
+    //     marginBottom: '20px',
+    //     fontSize: '14px'
+    // }
 
-    const styledProductPrice= {
-        ['transform']:  'translateY(15px)',
-        ['font-size']: '14px'
-    }
+    // const styledProductPrice= {
+    //     transform:  'translateY(15px)',
+    //     fontSize: '14px'
+    // }
+    
   return (       
     <>    
       <div className={"navbar " + NavWhite} >
@@ -90,11 +91,11 @@ export default function Navbar({NavWhite}) {
               <li>OUTERWEAR
                             <div className="dropdown-links">
                                 <ul>
-                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/container">container</Link></li>
-                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/trencher">trencher</Link></li>
-                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/coat">coat</Link></li>
-                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/jacket">jacket</Link></li>
-                                    <li><Link style={{textDecoration: 'none'}} style={{textDecoration: 'none'}} to="/kimono">kimono</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/container">container</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/trencher">trencher</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/coat">coat</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/jacket">jacket</Link></li>
+                                    <li><Link style={{textDecoration: 'none'}} to="/kimono">kimono</Link></li>
                                 </ul>
                             </div>
               </li>
@@ -140,24 +141,3 @@ export default function Navbar({NavWhite}) {
   )
 }
 
-
-
-
-
-
-
-
-
-
-{/*
-                      <script >
-                        window.addEventListener("scroll", function() {
-                            let navbar = document.getElementById('navbar')
-                            if(window.pageYOffset > 0) {
-                            navbar.classList.add("white");
-                            } else {
-                            navbar.classList.remove("white")
-                            }
-                        })
-                        </script>
-*/}

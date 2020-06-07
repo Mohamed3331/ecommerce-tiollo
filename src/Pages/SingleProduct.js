@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
 import { GoTag } from 'react-icons/go';
-import { GoInfo } from 'react-icons/go';
 import Navbar from '../Components/Navbar'
 import Bar from '../Components/Bar'
-import ProductContainer from '../Components/ProductContainer'
 
 export default class SingleProduct extends Component {
     state = {
@@ -27,15 +25,12 @@ export default class SingleProduct extends Component {
             display: 'none'
         }
 
-        const styledRibbon = {
-            
-        }
 
         const panel1 = this.state.isOpenFirst === true ? closedPanel : activePanel
         const panel2 = this.state.isOpenSecond === true ? closedPanel : activePanel
         const panel3 = this.state.isOpenThird === true ? closedPanel : activePanel
       
-        const { getProduct, getCardItem, cart} = this.context
+        const { getProduct, getCardItem} = this.context
         const product = getProduct(this.state.id)
         
         if (!product) {

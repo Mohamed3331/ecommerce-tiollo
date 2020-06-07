@@ -8,12 +8,12 @@ export default function CartItem({cartItem,increment,decrement,remove}) {
     
     
     const styledTD = {
-       ["font-size"]: "20px",
-       ["font-weight"]: "600"
+       fontSize: "20px",
+       fontWeight: "600"
       }
 
       const styledRemoveButton = {
-        ["cursor"]: "pointer",
+        cursor: "pointer",
         float: 'right'
       }
 

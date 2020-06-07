@@ -15,12 +15,10 @@ export default function Product({product}) {
                          <Link to={`/${slug}/${id}`}> <img src={images[0]} alt=""/>  </Link>
                         </div>
                         <div className="product-details">
-                            <h4><a href="">{name}</a></h4>
+                            <h4>{name}</h4>
                             <div className="product-bottom-details">
                                 <div className="product-price"><small>E£ { price + 30}</small>E£ { price}</div>
                                 <div className="product-links">
-                                    <a href=""><i className="fa fa-heart"></i></a>
-                                    <a href=""><i className="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
