@@ -34,7 +34,7 @@ export default function Jumptron() {
 
         <h1 className="jumptron-header-one">Stylish Islamic Fashion</h1>
 
-        <div id="container-above">
+        <div className="container-above">
 
 
           <section className="image-container">
@@ -69,9 +69,9 @@ export default function Jumptron() {
               <p className="caption">Straight Islamic Dress</p>
             </div>
 
-            <div data-aos="fade-right" class="image-item">
+            <div data-aos="fade-right" className="image-item">
               <img src={image7} alt="" />
-              <p class="caption">Hijab Kimono</p>
+              <p className="caption">Hijab Kimono</p>
             </div>
 
             <div data-aos="fade-up" className="image-item">
@@ -87,9 +87,9 @@ export default function Jumptron() {
         </div>
 
         <section className="bombo-container">
-          <a href="https://www.facebook.com"><div class="bombo"><FaFacebookF size={25}/></div></a>
-          <a href="https://www.instagram.com"><div class="bombo"><FaInstagram size={26}/></div></a>
-          <a href="https://www.pinterest.com"><div class="bombo"><FaPinterestP size={25}/></div> </a>     
+          <a href="https://www.facebook.com"><div className="bombo"><FaFacebookF size={25}/></div></a>
+          <a href="https://www.instagram.com"><div className="bombo"><FaInstagram size={26}/></div></a>
+          <a href="https://www.pinterest.com"><div className="bombo"><FaPinterestP size={25}/></div> </a>     
         </section>
 
         <JumptronLanding/>

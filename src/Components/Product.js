@@ -28,5 +28,3 @@ export default function Product({product}) {
     </>
     )
 }
-
-{/* <Link to={`/rooms/${slug}`} className="btn-primary room-link">Features</Link> */}
