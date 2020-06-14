@@ -21,14 +21,16 @@ a {
   width: 100%;
   position: relative;
   min-height: 10vh;
-  top: 0;
+  top: 0%;
   position: fixed;
   background-color: transparent;
-  transition: 0.3s;
+  transition: 0.5s;
   z-index: 100;
 }
 
 .WhiteNav {
+  border-radius: 5%;
+  top: 1%;
   background-color: white;
 }
 
@@ -41,7 +43,7 @@ a {
   z-index: 100;
 }
 
-.navbar.white .logo a{
+.navbar.white, .logo a{
   color: #a78080;
 }
 
@@ -142,8 +144,8 @@ a {
   transition: 1s;
 }
 
-.image img{
-  height: 100%;
+.imageHomepage img{
+  height: 50%;
   width: 100%;
   object-fit: contain;
   background-size: cover;
@@ -294,6 +296,12 @@ button {
   width: 20%;
   line-height: 60px;
 }
+
+.size-filterr {
+  
+}
+
+
 /* filter */
 
 
@@ -562,12 +570,12 @@ transform: scale(1.1);
 }
 
 .myButton-cart {
-	background-color: black;
+	background-color: rgb(255, 255, 255);
     border-radius:8px;
     border:2px solid;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#000000;
 	font-family:Arial;
     font-size:13px;
     letter-spacing: 2px;
@@ -577,8 +585,8 @@ transform: scale(1.1);
 }
 
 .myButton-cart:hover {
-    background: white;
-    color: black;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-color: black 1px;
     transition: 0.3s ease-in-out;
 }
@@ -1009,21 +1017,59 @@ table.blueTable thead th:first-child {
         }
 }
 
-.jumpotron-two {
-  margin-bottom: 200px;
-  margin-top: 100px;
-  width: 100%;
-  height: 40rem;
-  background-color: #CED3CA;
-  z-index: 0;
+.JumptronLanding-container {
+  
 }
 
-.jumptron-container {
- text-align: center;
- justify-content: center;
+
+.jumpotron-two {
+  margin-bottom: 300px;
+  margin-top: 100px;
+  width: 100%;
+  height: 43rem;
+  background-color: #3D4853;
+}
+
+.jumpotron-two img{
+  height: 43rem;
+  max-width: 100%;
+  float: right;
+  margin-bottom: 100px;
+}
+
+.jumpotron-text-side {
+  font-size: 24px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 10px;
+  max-width: 50rem;
+  padding-top: 15rem;
+  padding-right: 50px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: right;
+  text-align-last: left;
 }
 
 /* jumptron */
+
+
+/* Slider */
+
+.bg {
+  position: absolute;
+  margin: 50px;
+  width:50vw;
+  height:50vh;
+  background-size: cover;
+  background-position: center;
+  will-change: opacity;
+  text-align: center;
+}
+
+/* Slider */
 
 .bombo-container {
   display: flex;
@@ -1032,6 +1078,7 @@ table.blueTable thead th:first-child {
   left:0%;  
   position: fixed;
   margin: 5px;
+  margin-left: 8px;
   z-index: 100;
 }
 
@@ -1064,7 +1111,7 @@ table.blueTable thead th:first-child {
   color: #a78080;
 }
 
-#container-above {
+.container-above {
   padding: 50px;
   padding-right: 250px;
   padding-left: 250px;
@@ -1087,13 +1134,12 @@ table.blueTable thead th:first-child {
   font-weight: 800;
   font-size: 13px;
   text-transform: uppercase;
-  text-shadow: black 2px;
-  letter-spacing: 3px;
+  letter-spacing: 1.5px;
   transition: 1s;
 }
 
 .caption:hover {
-  transform: scale(0.95);
+  transform: scale(0.99);
   letter-spacing: 1px;
 }
 
@@ -1101,23 +1147,27 @@ table.blueTable thead th:first-child {
   text-align:center;
   flex: 1 0 25%;
   margin-bottom: 10px;
-}
 
+}
 
 .elementToAnimate{
     animation: yourAnimation 1s forwards 0s ease;
 }
 
 .image-item img {
-  width: 400px;
+  width: 410px;
   height: 570px;
-  filter: gray;
-  filter: grayscale(100%);
   transition: 0.8s;
+      -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
+-moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
+box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
 }
 
-.image-item img:hover {
-  filter: none;
+.image-item:hover img, .caption {
+    border-radius: 20%;
+    transform: scale(1.2);
+    color: rgb(255, 134, 154);
+
 }
 
 /* Mobile view */

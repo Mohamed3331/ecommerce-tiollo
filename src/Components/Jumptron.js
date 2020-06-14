@@ -14,9 +14,10 @@ import image7 from '../Images/leopar-desenli.jpg'
 import image8 from '../Images/neva-style.png'
 import image9 from '../Images/to-day-nakisli-tisort.jpg'
 import JumptronLanding from './JumptronLanding'
+import Slider from './Slider'
 import Aos from "aos"
 import 'aos/dist/aos.css';
-
+import image15 from '../Images/womeninshoes.jpg'
 
 export default function Jumptron() {
   useEffect(() => {
@@ -27,20 +28,19 @@ export default function Jumptron() {
 
     return (
       <>
-        <div className="image WhiteNav">
-          <img src={homepage} alt="" />
-          <div className="image-home-text">Explore <IoIosArrowDown className="image-home-text-icon"/> </div>
+        <div className="imageHomepage WhiteNav">
+          <img src={image15} alt="" />
+          <div className="image-home-text">
+            Explore <IoIosArrowDown className="image-home-text-icon" />{" "}
+          </div>
         </div>
 
         <h1 className="jumptron-header-one">Stylish Islamic Fashion</h1>
 
         <div className="container-above">
-
-
           <section className="image-container">
-
             <div data-aos="fade-right" className="image-item">
-              <img src={image1} alt="" />
+                <img src={image1} alt="" />
               <p className="caption">Hijab Dresses</p>
             </div>
 
@@ -87,13 +87,26 @@ export default function Jumptron() {
         </div>
 
         <section className="bombo-container">
-          <a href="https://www.facebook.com"><div className="bombo"><FaFacebookF size={25}/></div></a>
-          <a href="https://www.instagram.com"><div className="bombo"><FaInstagram size={26}/></div></a>
-          <a href="https://www.pinterest.com"><div className="bombo"><FaPinterestP size={25}/></div> </a>     
+          <a href="https://www.facebook.com">
+            <div className="bombo">
+              <FaFacebookF size={25} />
+            </div>
+          </a>
+          <a href="https://www.instagram.com">
+            <div className="bombo">
+              <FaInstagram size={26} />
+            </div>
+          </a>
+          <a href="https://www.pinterest.com">
+            <div className="bombo">
+              <FaPinterestP size={25} />
+            </div>{" "}
+          </a>
         </section>
 
-        <JumptronLanding/>
-        
+    
+        <JumptronLanding />
+        <Slider/>
       </>
     );
 }

@@ -29,7 +29,7 @@ class ProductProvider extends Component {
   componentDidMount() {
     this.syncStorage()
     this.getTotals()
-    // this.getData(); 
+    this.getData(); 
   }
 
   syncStorage() {
@@ -232,6 +232,8 @@ class ProductProvider extends Component {
     })
     window.location.reload()
   }
+
+  
 
   render() {
 
