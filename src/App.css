@@ -298,7 +298,9 @@ button {
 }
 
 .size-filterr {
-  
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 

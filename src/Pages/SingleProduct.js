@@ -4,18 +4,7 @@ import {ProductContext} from '../context'
 import { GoTag } from 'react-icons/go';
 import Navbar from '../Components/Navbar'
 import Bar from '../Components/Bar'
-import Select from 'react-select'
-import makeAnimated from 'react-select/animated'
-
-const optionsSize = [
-  { value: "small", label: "Small" },
-  { value: "medium", label: "Medium" },
-  { value: "large", label: "large" },
-  { value: "xlarge", label: "X-large" },
-  { value: "xxlarge", label: "XX-large" }
-]
-
-const animatedComponents = makeAnimated();
+import SizesFilter from '../Components/SizesFilter'
 
 export default class SingleProduct extends Component {
     state = {
@@ -26,20 +15,6 @@ export default class SingleProduct extends Component {
         added: false,
         sizes: []
     }
-
-    componentDidMount() {
-        function customeTheme(theme) {
-        return {
-        ...theme,
-            colors: {
-                ...theme.colors,
-                primary25: 'pink',
-                primary: 'pink'
-            }
-        }
-    }
-    }
-
 
 
     static contextType = ProductContext
@@ -52,7 +27,6 @@ export default class SingleProduct extends Component {
         const closedPanel = {
             display: 'none'
         }
-
 
         const panel1 = this.state.isOpenFirst === true ? closedPanel : activePanel
         const panel2 = this.state.isOpenSecond === true ? closedPanel : activePanel
@@ -86,17 +60,7 @@ export default class SingleProduct extends Component {
                         <div className="information-text"> {`OUTWEAR | ${product.name}`} </div>
                         <div className="information-text-break-line"><hr/></div>
                         <div className="product-price-number">{`E£ ${product.price}`}</div>
-                        <div className="product-text-size"> <GoTag className="gotag-logo" size={20}/> <Select
-                            className="size-filterr"
-                            options={optionsSize}
-                            theme={this.customTheme}
-                            noOptionsMessage={() => 'No more Sizes'}
-                            autoFocus
-                            isMulti
-                            components={animatedComponents}
-                            placeholder="Choose up to 2 Sizes"
-                            onChange={this.setState({sizes})}
-                        /> </div>
+                        <div className="product-text-size"> <GoTag className="gotag-logo" size={20}/> <SizesFilter/> </div>
                         <button className="myButton-cart" onClick={() => {getCardItem(this.state.id); this.setState({added: true}); } }> { this.state.added === false ? 'Add to Cart' : 'Added'} </button>
                         <div className="accordion-container">
                             <button className="accordion-buttonn" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Information</button>

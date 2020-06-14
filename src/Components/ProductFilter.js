@@ -35,7 +35,7 @@ export default function Filter() {
             onChange={filterRooms}
             theme={customeTheme}
             autoFocus
-            placeHolder="Filter here"
+            placeholder="Filter here"
             />
         </div>
     )
