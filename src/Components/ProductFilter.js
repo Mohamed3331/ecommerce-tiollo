@@ -8,7 +8,6 @@ const options = [
   { value: "hightolow", label: "Price (high to low)" },
 ];
 
-
 export default function Filter() {
 
     const { filterRooms } = useContext(ProductContext);
@@ -21,7 +20,7 @@ export default function Filter() {
             ...theme.colors,
             primary25: 'pink',
             primary: 'grey'
-            }
+          }
         }
     }
 

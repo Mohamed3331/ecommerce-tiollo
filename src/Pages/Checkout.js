@@ -8,7 +8,9 @@ import Bar from '../Components/Bar'
 import { MdCheckCircle } from 'react-icons/md';
 import { IoMdAlert } from 'react-icons/io';
 import { Formik } from 'formik';
+import Modal from "react-bootstrap/Modal";
 import {ProductContext} from '../context'
+import { FaCheck } from 'react-icons/fa';
 import * as yup from "yup";
 
   const schema = yup.object({
@@ -24,6 +26,8 @@ import * as yup from "yup";
   });
 
 
+
+
 export default function Checkout() {
 
   const [email, setEmail] = useState(null);
@@ -31,9 +35,9 @@ export default function Checkout() {
   const [checked2, setChecked2] = useState("black");
   const [checked3, setChecked3] = useState("black");
   const [toggle, setToggle] = useState("0")
-  
+  const [modalshow, setModalShow] = useState(false)
 
-  const {emailValidator, updateOrderDetails} = useContext(ProductContext);
+  const {emailValidator, updateOrderDetails, placeOrder} = useContext(ProductContext);
 
   const styledAccordion = {
     padding: '0px',
@@ -84,6 +88,29 @@ export default function Checkout() {
       width: "70%",
       height: "px",
      };
+
+  function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      
+      <Modal.Body>
+      <br/>
+        <br/>
+        <h2> <FaCheck size={30} color={"green"}/> Order Successfully </h2> 
+        <br/>
+        <br/>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
     
     return (
       <>
@@ -338,6 +365,8 @@ export default function Checkout() {
                           </div>
                         ))}
                       </Form>
+                      <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button>
+
                     </div>
                   </Card.Body>
                 </Accordion.Collapse>
@@ -345,6 +374,11 @@ export default function Checkout() {
             </Accordion>
           </section>
            <LayoutCart />
+
+            <MyVerticallyCenteredModal
+          show={modalshow}
+          onHide={() => setModalShow(true)}
+          />
       </>
     );
 }

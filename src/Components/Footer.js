@@ -1,16 +1,17 @@
 import React from 'react'
-import '../App.css'
+import Slider from '../Components/Slider'
 
 export default function Footer() {
     return (
         <>
-        <div className="footer">
         <div className="footer-container">
-          <span className="footer-span">©2020 All Rights Reserved</span>
-          <span className="footer-privacy">Privacy Policy</span>
-          <span className="footer-Terms">Terms of Service</span>
+          <div>
+            <p>INSTAGRAM</p>
+            <a href="https://www.instagram.com/tiollohouse/">@TiolloHouse</a>
+          </div>
+          
+          <Slider/>
         </div>
-      </div>
         </>
 
     )

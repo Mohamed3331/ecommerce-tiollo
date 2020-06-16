@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Client from "./Contentful";
 import { createClient } from "contentful-management";
 import validator from "email-validator";
-// import { sendEmail } from "./Backend/Email";
+import { sendEmail } from "./Backend/Email";
 
 
 const ProductContext = React.createContext()
@@ -27,18 +27,19 @@ class ProductProvider extends Component {
   }
 
   componentDidMount() {
+
     this.syncStorage()
-    this.getTotals()
     this.getData(); 
   }
 
-  syncStorage() {
-     localStorage.setItem('user', JSON.stringify(this.state));
-     this.userData = JSON.parse(localStorage.getItem('user'));
-    // localStorage.clear()
+  componentWillUpdate(nextProps,nextState) {
+      localStorage.setItem("user", JSON.stringify(nextState));  
+  }
+  syncStorage = () => {
+    this.userData = JSON.parse(localStorage.getItem("user"));
+
     if (localStorage.getItem('user')) {
-      this.setState({ products: [...this.userData.products], cart: [...this.userData.cart] } )
-      
+      this.setState({ cart: [...this.userData.cart] } )
     } else {
       this.setState({ cart: [] })
     }
@@ -64,7 +65,7 @@ class ProductProvider extends Component {
     } catch (e) {
     console.log(e);
    }
-  };
+  }
   
   updateEntry = async (id,count) => {
     const client = createClient({
@@ -98,7 +99,7 @@ class ProductProvider extends Component {
     let tempProducts = [...this.state.products];
     let products = tempProducts.filter(product => product.slug === slug);
     return products;
-  };
+  }
 
   getProduct = id => {
     let tempProducts = [...this.state.products];
@@ -112,7 +113,12 @@ class ProductProvider extends Component {
     if (!tempItem) {
       tempItem = tempProducts.find(item => item.id === id);
       this.setState({ cart: [ tempItem, ...this.state.cart] })
-    } 
+    }
+    this.setState(
+      () => {
+        this.getTotals();
+      }
+    );
   }
 
   incrementItem = id => {
@@ -145,7 +151,7 @@ class ProductProvider extends Component {
      this.setState({ cart: [...tempCart]},
       () => {
         this.getTotals();
-        this.syncStorage();
+        // this.syncStorage();
       },
       window.location.reload()
     );
@@ -182,24 +188,24 @@ class ProductProvider extends Component {
     }
   }
 
-  // placeOrder = () => {
-  //   const {email, form, total, subTotal, cart} = this.state
+  placeOrder = () => {
+    const {email, form, total, subTotal, cart} = this.state
 
-  //   let hoho = []
-  //   cart.map((item) => {
-  //     return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
-  //   })
+    let hoho = []
+    cart.map((item) => {
+      return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
+    })
 
-  //   if (this.state.email && this.state.form) {
-  //     sendEmail(email, JSON.stringify(form), total, subTotal, hoho)
+    if (this.state.email && this.state.form) {
+      sendEmail(email, JSON.stringify(form), total, subTotal, hoho)
 
-  //     cart.map(item => {
-  //       this.updateEntry(item.id,item.count)
-  //     })
-  //   } else {
-  //     alert('Please continue the checkout process')
-  //   }
-  // }
+      cart.map(item => {
+        this.updateEntry(item.id,item.count)
+      })
+    } else {
+      alert('Please continue the checkout process')
+    }
+  }
 
   filterRooms = (choice) => {
 
@@ -236,6 +242,8 @@ class ProductProvider extends Component {
   
 
   render() {
+    console.log(this.state.cart);
+    
 
     return (
       <>

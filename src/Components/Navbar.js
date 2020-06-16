@@ -5,6 +5,7 @@ import $ from "jquery";
 // import Overlay from 'react-bootstrap/Overlay'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
+import logo from '../Images/logoo.png'
 
 function renderTooltip(props) {
   return (
@@ -32,28 +33,11 @@ export default function Navbar({NavWhite}) {
       })
     })
 
-    // const styledLink = {
-    //     textDecoration: 'none',
-    //     color: 'black'
-    // }
-
-    // const styledProductText= {
-    //     transform:  'translateY(15px)',
-    //     marginLeft: '20px',
-    //     marginBottom: '20px',
-    //     fontSize: '14px'
-    // }
-
-    // const styledProductPrice= {
-    //     transform:  'translateY(15px)',
-    //     fontSize: '14px'
-    // }
-    
   return (       
     <>    
       <div className={"navbar " + NavWhite} >
         <div className="logo">
-          <a href="/">Tiollo</a>
+          <a href="/"> <img src={logo} alt=""/> </a>
         </div>
 
         <div className="inner-navbar">

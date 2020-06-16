@@ -9,7 +9,7 @@ export default function Home() {
         <div>
             <NavBar/>
             <Jumptron/>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }

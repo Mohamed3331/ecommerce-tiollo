@@ -1,32 +1,5 @@
 import React, { Component } from 'react'
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";  
 import {ProductContext} from '../context'
-import { FaCheck } from 'react-icons/fa';
-
-  function MyVerticallyCenteredModal(props) {
-
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      
-      <Modal.Body>
-      <br/>
-        <br/>
-        <h2> <FaCheck size={30} color={"green"}/> Order Successfully </h2> 
-        <br/>
-        <br/>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
 
 export default class Layoutcart extends Component {
   state = {
@@ -37,7 +10,7 @@ export default class Layoutcart extends Component {
 
   render() {
 
-    const { cart, shipping, subTotal, total, placeOrder } = this.context  
+    const { cart, shipping, subTotal, total } = this.context  
 
     return (
       <>
@@ -77,13 +50,10 @@ export default class Layoutcart extends Component {
               </div>
 
             </section>
-            <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button>
+            {/* <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button> */}
             
           </article>
-           <MyVerticallyCenteredModal
-          show={this.state.modalShow}
-          onHide={() => this.setState({modalShow: false})}
-          />
+          
         </div>
       </>
     );

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import homepage from '../Images/RITAH.jpg'
 import {FaFacebookF} from 'react-icons/fa'
 import {FaInstagram} from 'react-icons/fa'
 import {FaPinterestP} from 'react-icons/fa'
@@ -17,7 +16,7 @@ import JumptronLanding from './JumptronLanding'
 import Slider from './Slider'
 import Aos from "aos"
 import 'aos/dist/aos.css';
-import image15 from '../Images/womeninshoes.jpg'
+import homepage from '../Images/womeninshoes.jpg'
 
 export default function Jumptron() {
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function Jumptron() {
     return (
       <>
         <div className="imageHomepage WhiteNav">
-          <img src={image15} alt="" />
+          <img src={homepage} alt="" />
           <div className="image-home-text">
             Explore <IoIosArrowDown className="image-home-text-icon" />{" "}
           </div>
@@ -89,24 +88,23 @@ export default function Jumptron() {
         <section className="bombo-container">
           <a href="https://www.facebook.com">
             <div className="bombo">
-              <FaFacebookF size={25} />
+              <FaFacebookF size={20} />
             </div>
           </a>
           <a href="https://www.instagram.com">
             <div className="bombo">
-              <FaInstagram size={26} />
+              <FaInstagram size={22} />
             </div>
           </a>
           <a href="https://www.pinterest.com">
             <div className="bombo">
-              <FaPinterestP size={25} />
+              <FaPinterestP size={20} />
             </div>{" "}
           </a>
         </section>
 
     
         <JumptronLanding />
-        <Slider/>
       </>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import image15 from '../Images/womeninshoes.jpg'
-
+import Slider from '../Components/Slider'
 
 export default function JumptronLanding() {
     return (
@@ -13,7 +13,7 @@ export default function JumptronLanding() {
                </div>
                <div className="jumpotron-text-side">
                 <p>Enhance Your Beauty. Feel the Quality.</p>
-                <p></p>
+                <span>Tiollo, we provide comfy and cheap Islamic cloth, we present the new fashion of islamic cloth for women, by bringing professional designers to produce quality that suits your beauty. </span>
                </div>
             </div>
             </section>
