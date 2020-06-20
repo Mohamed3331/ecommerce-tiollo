@@ -3,6 +3,9 @@ import {FaFacebookF} from 'react-icons/fa'
 import {FaInstagram} from 'react-icons/fa'
 import {FaPinterestP} from 'react-icons/fa'
 import {IoIosArrowDown} from 'react-icons/io'
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import { TiArrowSync } from "react-icons/ti";
 import image1 from '../Images/bella-elbise.jpg'
 import image2 from '../Images/cizgili-miya.jpg'
 import image3 from '../Images/molly-marine.png'
@@ -34,12 +37,30 @@ export default function Jumptron() {
           </div>
         </div>
 
-        <h1 className="jumptron-header-one">Stylish Islamic Fashion</h1>
+        <section className="section-intro-information-bar">
+          <h1 className="jumptron-header-one">Tiollo House | Stylish Islamic Fashion</h1>
+          <h1 className="jumptron-header-two">Official site of Tiollo House Fashion designs.</h1>
+          <section className="section-information-bar">
+
+            <div className="div-information-bar">
+              <h3> <FaTelegramPlane size={17}/> WORLDWIDE DELIVERY</h3>
+            </div>
+
+            <div className="div-information-bar">
+              <h3> <FaLock size={17}/> SECURE PAYMENTS</h3>
+            </div>
+
+            <div className="div-information-bar">
+              <h3> <TiArrowSync size={20}/> SIMPLE RETURNS</h3>
+            </div>
+          </section>
+
+        </section>
 
         <div className="container-above">
           <section className="image-container">
             <div data-aos="fade-right" className="image-item">
-                <img src={image1} alt="" />
+              <img src={image1} alt="" />
               <p className="caption">Hijab Dresses</p>
             </div>
 
@@ -86,12 +107,12 @@ export default function Jumptron() {
         </div>
 
         <section className="bombo-container">
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com/Tiollohouse/">
             <div className="bombo">
               <FaFacebookF size={20} />
             </div>
           </a>
-          <a href="https://www.instagram.com">
+          <a href="https://www.instagram.com/tiollohouse/">
             <div className="bombo">
               <FaInstagram size={22} />
             </div>
@@ -103,7 +124,6 @@ export default function Jumptron() {
           </a>
         </section>
 
-    
         <JumptronLanding />
       </>
     );

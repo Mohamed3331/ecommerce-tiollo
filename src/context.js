@@ -20,21 +20,22 @@ class ProductProvider extends Component {
     cartTotal: 0,
     signedIn: false,
     subTotal: 0,
-    shipping: 0,
     total: 0,
     form: '',
-    email: ''
+    email: '',
+    sizedItem: null
   }
 
   componentDidMount() {
-
     this.syncStorage()
+    this.getTotals();
     this.getData(); 
   }
 
   componentWillUpdate(nextProps,nextState) {
       localStorage.setItem("user", JSON.stringify(nextState));  
   }
+
   syncStorage = () => {
     this.userData = JSON.parse(localStorage.getItem("user"));
 
@@ -88,8 +89,9 @@ class ProductProvider extends Component {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
       const count = 1
+      let size = []
       const totalPrice = item.fields.price
-      let product = { ...item.fields, images, id, count, totalPrice };
+      let product = { ...item.fields, images, id, count, totalPrice, size };
       return product;
     });
     return tempItems;
@@ -104,7 +106,7 @@ class ProductProvider extends Component {
   getProduct = id => {
     let tempProducts = [...this.state.products];
     const product = tempProducts.find(product => product.id === id);
-    return product;
+    return product
   };
 
   getCardItem = id => {
@@ -114,11 +116,8 @@ class ProductProvider extends Component {
       tempItem = tempProducts.find(item => item.id === id);
       this.setState({ cart: [ tempItem, ...this.state.cart] })
     }
-    this.setState(
-      () => {
-        this.getTotals();
-      }
-    );
+
+    this.setState( () => {this.getTotals()} )
   }
 
   incrementItem = id => {
@@ -189,15 +188,15 @@ class ProductProvider extends Component {
   }
 
   placeOrder = () => {
-    const {email, form, total, subTotal, cart} = this.state
+    const {email, form, total, subTotal, cart, size} = this.state
 
     let hoho = []
     cart.map((item) => {
-      return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
+      return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + `Size: ${item.size} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
     })
 
     if (this.state.email && this.state.form) {
-      sendEmail(email, JSON.stringify(form), total, subTotal, hoho)
+      sendEmail(email, JSON.stringify(form), total, subTotal, hoho, size)
 
       cart.map(item => {
         this.updateEntry(item.id,item.count)
@@ -232,6 +231,22 @@ class ProductProvider extends Component {
     }
   }
 
+  getItemSize = (sizee) => {  
+    if (sizee) {
+      this.state.sizedItem.size = [...sizee]
+      console.log(this.state.sizedItem.size);
+    } else {
+      
+    }
+  }
+
+  getItemSizeID = (id) => {
+    let tempProducts = [...this.state.products];
+    let cardItem = tempProducts.find((product) => product.id === id);
+
+    this.setState({ sizedItem: cardItem });
+  }
+
   clearCart = () => {
     this.setState({
       cart: []
@@ -241,13 +256,13 @@ class ProductProvider extends Component {
 
   
 
-  render() {
-    console.log(this.state.cart);
+  render() {    
+    console.log(this.state.products);
     
-
+    
     return (
       <>
-        <ProductContext.Provider value={{...this.state ,clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
+        <ProductContext.Provider value={{...this.state ,getItemSizeID: this.getItemSizeID, getItemSize: this.getItemSize, clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
           {this.props.children}
         </ProductContext.Provider>
 

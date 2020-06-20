@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
+import {ProductContext} from '../context'
 
 const optionsSize = [
   { value: "small", label: "Small" },
@@ -12,7 +13,13 @@ const optionsSize = [
 
 const animatedComponents = makeAnimated()
 
-export default function SizesFilter() {
+export default function SizesFilter({id}) {
+
+    const { getItemSize, getItemSizeID } = useContext(ProductContext);
+
+    useEffect(() => {
+        getItemSizeID(id)
+    }, [])
 
     const [sizes, setSizes] = useState([])
 
@@ -38,7 +45,7 @@ export default function SizesFilter() {
                     isMulti
                     components={animatedComponents}
                     placeholder="Choose up to 2 Sizes"
-                    onChange={setSizes}
+                    onChange={getItemSize}
                 />
             </div>    
         </>

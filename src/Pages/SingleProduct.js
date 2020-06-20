@@ -60,7 +60,7 @@ export default class SingleProduct extends Component {
                         <div className="information-text"> {`OUTWEAR | ${product.name}`} </div>
                         <div className="information-text-break-line"><hr/></div>
                         <div className="product-price-number">{`E£ ${product.price}`}</div>
-                        <div className="product-text-size"> <GoTag className="gotag-logo" size={20}/> <SizesFilter/> </div>
+                        <div className="product-text-size"> <SizesFilter id={this.state.id}/> </div>
                         <button className="myButton-cart" onClick={() => {getCardItem(this.state.id); this.setState({added: true}); } }> { this.state.added === false ? 'Add to Cart' : 'Added'} </button>
                         <div className="accordion-container">
                             <button className="accordion-buttonn" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Information</button>

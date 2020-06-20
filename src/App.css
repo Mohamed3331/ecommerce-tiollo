@@ -31,7 +31,7 @@ a {
 .WhiteNav {
   border-radius: 5%;
   top: 1%;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .navbar:hover {
@@ -43,13 +43,6 @@ a {
   z-index: 100;
 }
 
-.navbar.white, .logo a{
-  color: #a78080;
-}
-
-.navbar.white .navlinks li {
-  color: #a78080;
-}
 
 .inner-navbar{
   margin: 0 auto;
@@ -72,10 +65,10 @@ a {
 }
 
 .navlinks li {
-   font-size: 12px !important;
-   font-weight: 800 !important;
-   letter-spacing: 1px;
-    color: #a78080;
+   font-size: 13px !important;
+   font-weight: bold !important;
+   letter-spacing: 2px;
+    color: rgb(241, 156, 156);
    transition: 1s;
    padding-bottom: 20px;
 }
@@ -111,7 +104,7 @@ a {
   text-transform: uppercase;
   text-decoration: none;
   display: block;
-  padding: 30px 20px;
+  padding: 30px 15px;
 }
 
 .logo {
@@ -119,6 +112,7 @@ a {
   left: 50%;
   text-align: center;
   top: 0;
+  height: auto;
   letter-spacing: 3px;
   animation: yourlogoAnimation 1s forwards 0s ease;
   
@@ -134,14 +128,8 @@ a {
         }
 }
 
-.logo a {
-  text-decoration: none;
-    color: #a78080;
-  transition: 1s;
-}
-
 .imageHomepage img{
-  height: 50%;
+  height: auto;
   width: 100%;
   object-fit: contain;
   background-size: cover;
@@ -260,14 +248,15 @@ button {
     width: 100%;
     z-index:50;
     top: 0;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .bar .bar-text {
     line-height: 50px;
     text-align: center;
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
     width: 100%;
 }
 
@@ -758,8 +747,16 @@ transform: scale(1.1);
   border: 2px solid black;
 }
 
+.image-td-cartItem {
+  transition: 0.5s;
+}
+
+.image-td-cartItem:hover {
+  transform: scale(0.9);
+}
+
 .cart-subtotal-price-checkout-button:hover {
-  background-color:#000000;
+  background-color:#ffffff;
   color: rgb(255, 255, 255);
   border: 2px solid black;
   font-weight: 500;
@@ -775,7 +772,7 @@ table.blueTable tbody td:first-child {
 }
 
 table.blueTable {
-  background-color: rgb(243, 243, 243);
+  background-color: (250, 250, 250);
   width: 100%;
   height: 200px;
   text-align: center;
@@ -784,7 +781,7 @@ table.blueTable {
 }
 
 table.blueTable td, table.blueTable th {
-  border: 0px solid rgb(255, 255, 255);
+  border: 0px solid (250, 250, 250);
 }
 
 table.blueTable tbody td {
@@ -800,7 +797,7 @@ table.blueTable tbody td:last-child {
 }
 
 table.blueTable thead {
-  background: rgb(255, 255, 255);
+  background: (250, 250, 250);
   border-bottom: 1px solid #000000;
 }
 
@@ -811,7 +808,7 @@ table.blueTable thead th {
   justify-content: center;
   text-align: center;
   color: rgb(0, 0, 0);
-  border-left: 0px solid rgb(255, 255, 255);
+  border-left: 0px solid (250, 250, 250);
 }
 
 table.blueTable thead th:first-child {
@@ -821,6 +818,75 @@ table.blueTable thead th:first-child {
 }
 
 /* Cart */
+
+/* INFORMATION BAR */
+
+.jumptron-header-one{
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 22px;
+  letter-spacing: 5px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.jumptron-header-two{
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-style: italic;
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.section-intro-information-bar {
+  background-color: #f1f1f1;
+  margin-bottom: 50px;
+  padding: 25px;
+-webkit-box-shadow: 0px 2px 16px 1px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 2px 16px 1px rgba(0,0,0,0.57);
+box-shadow: 0px 2px 16px 1px rgba(0,0,0,0.30);
+}
+
+.section-information-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.div-information-bar {
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+  margin: 20px;
+    justify-content: center;
+  align-items: center;
+-webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.58);
+-moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.58);
+box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.58);
+cursor: pointer;
+}
+
+.div-information-bar h3 {
+  padding: 25px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding-top: 35px;
+}
+
+.div-information-bar:hover {
+  background-color: #c2c2c2;
+  color: white;
+  -webkit-box-shadow: 0px 0px 2px 1px #c2c2c2;
+-moz-box-shadow: 0px 0px 2px 1px #c2c2c2;
+box-shadow: 0px 0px 2px 1px #c2c2c2;
+}
+
+/* INFORMATION BAR */
 
 /* CheckOut */
 
@@ -887,8 +953,8 @@ table.blueTable thead th:first-child {
 }
 
 .form-submit-button {
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   transition: 0.5s;
   width: 70%;
   font-size: 20px;
@@ -897,8 +963,8 @@ table.blueTable thead th:first-child {
 }
 
 .form-submit-button:hover {
-  background-color: rgb(226, 222, 222);
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: 700;
   transition: 0.5s;
 }
@@ -1111,18 +1177,6 @@ table.blueTable thead th:first-child {
   border: 2px solid #A78080;
 }
 
-.jumptron-header-one {
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 28px;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  line-height: 72px;
-  padding: 0px;
-  margin: 5rem;
-  color: #a78080;
-}
-
 .container-above {
   padding: 50px;
   padding-right: 250px;
@@ -1185,14 +1239,15 @@ box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
 /* Mobile view */
 
 @media screen and (max-width:768px) {
-  body{
-    overflow-x: hidden;
-  }
 
+html, body {
+  overflow-x:hidden 
+} 
 
   .navbar {
     background-color: white;
     position: relative;
+    width: 100%;
   }
 
   .inner-navbar {
