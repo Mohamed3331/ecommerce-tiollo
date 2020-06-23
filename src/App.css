@@ -756,7 +756,7 @@ transform: scale(1.1);
 }
 
 .cart-subtotal-price-checkout-button:hover {
-  background-color:#ffffff;
+  background-color:#000000;
   color: rgb(255, 255, 255);
   border: 2px solid black;
   font-weight: 500;
