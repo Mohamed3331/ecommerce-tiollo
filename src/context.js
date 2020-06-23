@@ -186,22 +186,22 @@ class ProductProvider extends Component {
   }
 
   placeOrder = () => {
-    const {email, form, total, subTotal, cart, size} = this.state
+    // const {email, form, total, subTotal, cart, size} = this.state
 
-    let hoho = []
-    cart.map((item) => {
-      return hoho.push( ` ItemName: ${item.name} ` + '&nbsp &nbsp' + `ItemPrice: ${item.price} ` + ' &nbsp &nbsp ' + `Size: ${item.size} ` + ' &nbsp &nbsp ' + ` ItemCount: ${item.count} ` + ' &nbsp &nbsp ' + ` ItemQuantity: ${item.quantity} ` + ' &nbsp &nbsp ' + ` ItemTotalPrice: ${item.totalPrice} ` + '&nbsp &nbsp &nbsp &nbsp' )
-    })
+    // let hoho = []
+    // cart.map((item) => {
+    //   return hoho.push( `ItemName: ${item.name}` )
+    // })
 
-    if (this.state.email && this.state.form) {
-      sendEmail(email, JSON.stringify(form), total, subTotal, hoho, size)
+    // if (this.state.email && this.state.form) {
+    //   sendEmail(email, JSON.stringify(form), total, subTotal, hoho, size)
 
-      cart.map(item => {
-        this.updateEntry(item.id,item.count)
-      })
-    } else {
-      alert('Please continue the checkout process')
-    }
+    //   cart.map(item => {
+    //     this.updateEntry(item.id,item.count)
+    //   })
+    // } else {
+    //   alert('Please continue the checkout process')
+    // }
   }
 
   filterRooms = (choice) => {
@@ -248,14 +248,7 @@ class ProductProvider extends Component {
     window.location.reload()
   }
 
-  
-
   render() {    
-
-    console.log(this.state.products);
-    
-    
-    
     return (
       <>
         <ProductContext.Provider value={{...this.state ,getItemSizeID: this.getItemSizeID, getItemSize: this.getItemSize, clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
