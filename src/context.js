@@ -23,7 +23,7 @@ class ProductProvider extends Component {
     total: 0,
     form: '',
     email: '',
-    sizedItem: null
+    sizedItem: []
   }
 
   componentDidMount() {
@@ -160,12 +160,10 @@ class ProductProvider extends Component {
     let subTotal = 0;
     this.userData.cart.forEach(item => { subTotal += item.totalPrice })
     subTotal = parseFloat(subTotal.toFixed(2));
-    let shipping = 11;
-    shipping = parseFloat(shipping.toFixed(2));
-    let total = subTotal + shipping;
+    let total = subTotal;
     total = parseFloat(total.toFixed(2));
     this.setState(() => {
-      return { subTotal: subTotal, shipping: shipping, total: total }
+      return { subTotal: subTotal, total: total }
     });
   }
 
@@ -234,16 +232,12 @@ class ProductProvider extends Component {
   getItemSize = (sizee) => {  
     if (sizee) {
       this.state.sizedItem.size = [...sizee]
-      console.log(this.state.sizedItem.size);
-    } else {
-      
     }
   }
 
   getItemSizeID = (id) => {
     let tempProducts = [...this.state.products];
     let cardItem = tempProducts.find((product) => product.id === id);
-
     this.setState({ sizedItem: cardItem });
   }
 
@@ -257,7 +251,9 @@ class ProductProvider extends Component {
   
 
   render() {    
+
     console.log(this.state.products);
+    
     
     
     return (

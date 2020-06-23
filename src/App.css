@@ -1021,7 +1021,7 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
   float: right;
 }
 
-.layout-section-subtotal-item, .layout-section-total-item {
+.layout-section-subtotal-item, .layout-section-total-item, .layout-section-total-item-shipping {
   height: 40px;
 }
 
@@ -1037,6 +1037,12 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
   padding: 5px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.layout-section-total-item-shipping span{
+  float: left;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .layout-section-total-item div{

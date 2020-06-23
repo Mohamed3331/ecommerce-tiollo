@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
-import { GoTag } from 'react-icons/go';
 import Navbar from '../Components/Navbar'
 import Bar from '../Components/Bar'
 import SizesFilter from '../Components/SizesFilter'

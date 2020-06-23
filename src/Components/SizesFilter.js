@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useEffect, useContext} from 'react'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
 import {ProductContext} from '../context'
@@ -18,10 +18,8 @@ export default function SizesFilter({id}) {
     const { getItemSize, getItemSizeID } = useContext(ProductContext);
 
     useEffect(() => {
-        getItemSizeID(id)
+            getItemSizeID(id)
     }, [])
-
-    const [sizes, setSizes] = useState([])
 
     function customeTheme(theme) {
     return {

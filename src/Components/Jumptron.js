@@ -16,7 +16,6 @@ import image7 from '../Images/leopar-desenli.jpg'
 import image8 from '../Images/neva-style.png'
 import image9 from '../Images/to-day-nakisli-tisort.jpg'
 import JumptronLanding from './JumptronLanding'
-import Slider from './Slider'
 import Aos from "aos"
 import 'aos/dist/aos.css';
 import homepage from '../Images/womeninshoes.jpg'

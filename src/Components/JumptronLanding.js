@@ -1,6 +1,5 @@
 import React from 'react'
 import image15 from '../Images/womeninshoes.jpg'
-import Slider from '../Components/Slider'
 
 export default function JumptronLanding() {
     return (

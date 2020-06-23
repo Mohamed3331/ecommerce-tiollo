@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {ProductContext} from '../context'
+import { FiPhoneOutgoing } from "react-icons/fi";
 
 export default class Layoutcart extends Component {
   state = {
@@ -10,7 +11,7 @@ export default class Layoutcart extends Component {
 
   render() {
 
-    const { cart, shipping, subTotal, total } = this.context  
+    const { cart, subTotal, total } = this.context  
 
     return (
       <>
@@ -37,9 +38,8 @@ export default class Layoutcart extends Component {
                 <span>£{subTotal}</span>
               </div>
               
-              <div className="layout-section-total-item">
-                <div>Shipping</div>
-                <span>£{shipping}</span>
+              <div className="layout-section-total-item-shipping">
+                <span> <FiPhoneOutgoing/> You will be contacted for delivery fees.</span>
               </div>
 
               <hr/>
@@ -49,9 +49,7 @@ export default class Layoutcart extends Component {
                 <span>£{total}</span>
               </div>
 
-            </section>
-            {/* <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button> */}
-            
+            </section>            
           </article>
           
         </div>

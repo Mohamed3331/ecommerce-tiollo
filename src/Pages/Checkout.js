@@ -25,9 +25,6 @@ import * as yup from "yup";
     state: yup.string().optional()
   });
 
-
-
-
 export default function Checkout() {
 
   const [email, setEmail] = useState(null);
@@ -365,7 +362,7 @@ export default function Checkout() {
                           </div>
                         ))}
                       </Form>
-                      <button onClick={() => {placeOrder(); this.setState({modalShow: true})}}className="checkoutfinish-button-submit">Place Order</button>
+                      <button onClick={() => {placeOrder(); setModalShow(true) }}className="checkoutfinish-button-submit">Place Order</button>
 
                     </div>
                   </Card.Body>
@@ -377,7 +374,7 @@ export default function Checkout() {
 
             <MyVerticallyCenteredModal
           show={modalshow}
-          onHide={() => setModalShow(true)}
+          onHide={() => setModalShow(false)}
           />
       </>
     );
