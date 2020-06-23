@@ -21,7 +21,7 @@ export default class Cart extends Component {
         <Bar/>
 
         <div className="cart-container">
-          <table class="blueTable">
+          <table className="blueTable">
 
             <thead>
               <tr>

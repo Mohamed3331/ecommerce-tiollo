@@ -19,7 +19,7 @@ export default function SizesFilter({id}) {
 
     useEffect(() => {
             getItemSizeID(id)
-    }, [])
+    }, [getItemSizeID, id])
 
     function customeTheme(theme) {
     return {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Client from "./Contentful";
 import { createClient } from "contentful-management";
 import validator from "email-validator";
-import { sendEmail } from "./Backend/Email";
+// import { sendEmail } from "./Backend/Email";
 
 
 const ProductContext = React.createContext()
@@ -32,7 +32,7 @@ class ProductProvider extends Component {
     this.getData(); 
   }
 
-  componentWillUpdate(nextProps,nextState) {
+  UNSAFE_componentWillUpdate(nextProps,nextState) {
       localStorage.setItem("user", JSON.stringify(nextState));  
   }
 
@@ -231,7 +231,8 @@ class ProductProvider extends Component {
 
   getItemSize = (sizee) => {  
     if (sizee) {
-      this.state.sizedItem.size = [...sizee]
+      let sizedCartItem = this.state.sizedItem
+      sizedCartItem.size = [...sizee]
     }
   }
 
