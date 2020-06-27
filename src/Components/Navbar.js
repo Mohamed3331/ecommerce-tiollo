@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import {Link} from 'react-router-dom'
 import {FaShoppingBag} from 'react-icons/fa'
 import $ from "jquery"; 
-// import Overlay from 'react-bootstrap/Overlay'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import logo from '../Images/logoo.png'
@@ -32,6 +31,23 @@ export default function Navbar({NavWhite}) {
         })
       })
     })
+
+  useEffect(() => {
+    
+    $(function () {
+      const navSlide = () => {
+        const burger = document.querySelector('.burger')
+        const nav = document.querySelector('.inner-navbar')
+
+        burger.addEventListener('click', () => {
+        nav.classList.toggle('navbar-active')
+      }) 
+    }
+    })
+
+
+
+  }, [])
 
   return (       
     <>    

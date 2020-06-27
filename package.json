@@ -29,6 +29,7 @@
     "react-scripts": "3.4.1",
     "react-select": "^3.1.0",
     "react-spring": "^8.0.27",
+    "react-use-gesture": "^7.0.15",
     "swiper": "^5.3.6",
     "yup": "^0.28.4"
   },
