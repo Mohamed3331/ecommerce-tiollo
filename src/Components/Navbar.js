@@ -32,23 +32,6 @@ export default function Navbar({NavWhite}) {
       })
     })
 
-  useEffect(() => {
-    
-    $(function () {
-      const navSlide = () => {
-        const burger = document.querySelector('.burger')
-        const nav = document.querySelector('.inner-navbar')
-
-        burger.addEventListener('click', () => {
-        nav.classList.toggle('navbar-active')
-      }) 
-    }
-    })
-
-
-
-  }, [])
-
   return (       
     <>    
       <div className={"navbar " + NavWhite} >
