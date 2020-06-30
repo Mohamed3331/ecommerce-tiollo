@@ -27,24 +27,23 @@ class ProductProvider extends Component {
   }
 
   componentDidMount() {
-    this.syncStorage()
+    // this.syncStorage()
     this.getTotals();
     this.getData(); 
   }
 
-  componentWillUpdate(nextProps,nextState) {
+  UNSAFE_componentWillUpdate(nextProps,nextState) {
       localStorage.setItem("user", JSON.stringify(nextState));  
   }
 
-  syncStorage = () => {
-    this.userData = JSON.parse(localStorage.getItem("user"));
-
-    if (localStorage.getItem('user')) {
-      this.setState({ cart: [...this.userData.cart] } )
-    } else {
-      this.setState({ cart: [] })
-    }
-  }
+  // syncStorage = () => {
+  //   this.userData = JSON.parse(localStorage.getItem("user"));
+  //   if (localStorage.getItem('user')) {
+  //     this.setState({ cart: [...this.userData.cart] } )
+  //   } else {
+  //     this.setState({ cart: [] })
+  //   }
+  // }
 
   getData = async () => {
     try {
@@ -158,7 +157,7 @@ class ProductProvider extends Component {
 
   getTotals () {
     let subTotal = 0;
-    this.userData.cart.forEach(item => { subTotal += item.totalPrice })
+    this.state.cart.forEach(item => { subTotal += item.totalPrice })
     subTotal = parseFloat(subTotal.toFixed(2));
     let total = subTotal;
     total = parseFloat(total.toFixed(2));
