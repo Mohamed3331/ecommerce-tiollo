@@ -17,7 +17,7 @@ export default function Crousel() {
           <div className="swiper-slide"><img src={image4} alt=""/></div>
           <div className="swiper-slide"><img src={image6} alt=""/></div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div className="swiper-pagination"></div>
       </div>
     </>
   );
