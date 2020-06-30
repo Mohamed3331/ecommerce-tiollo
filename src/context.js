@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Client from "./Contentful";
-// import { createClient } from "contentful-management";
+import { createClient } from "contentful-management";
 import validator from "email-validator";
 // import { sendEmail } from "./Backend/Email";
 
@@ -32,9 +32,9 @@ class ProductProvider extends Component {
     this.getData(); 
   }
 
-  // UNSAFE_componentWillUpdate(nextProps,nextState) {
-  //     localStorage.setItem("user", JSON.stringify(nextState));  
-  // }
+  UNSAFE_componentWillUpdate(nextProps,nextState) {
+      localStorage.setItem("user", JSON.stringify(nextState));  
+  }
 
   syncStorage = () => {
     this.userData = JSON.parse(localStorage.getItem("user"));
@@ -68,21 +68,21 @@ class ProductProvider extends Component {
    }
   }
   
-  // updateEntry = async (id,count) => {
-  //   const client = createClient({
-  //   accessToken: "CFPAT-p_770xD2aZiFwQW9DLRI-4w_8jr0C2dA504-ISPLcxs",
-  //   })
+  updateEntry = async (id,count) => {
+    const client = createClient({
+    accessToken: "CFPAT-p_770xD2aZiFwQW9DLRI-4w_8jr0C2dA504-ISPLcxs",
+    })
 
-  //   await client.getSpace("7zqu7ohvhyp1")
-  //   .then((space) => space.getEntry(id))
-  //   .then((entry) => {
-  //     entry.fields.quantity['en-US'] = entry.fields.quantity['en-US'] - count
-  //     return entry.update()
-  //   })
-  //   .then((entry) => entry.publish())
-  //   .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
-  //   .catch(console.error)
-  // }
+    await client.getSpace("7zqu7ohvhyp1")
+    .then((space) => space.getEntry(id))
+    .then((entry) => {
+      entry.fields.quantity['en-US'] = entry.fields.quantity['en-US'] - count
+      return entry.update()
+    })
+    .then((entry) => entry.publish())
+    .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
+    .catch(console.error)
+  }
 
   formatData(items) {
     let tempItems = items.map(item => {
