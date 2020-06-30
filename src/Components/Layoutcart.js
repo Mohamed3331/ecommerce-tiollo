@@ -23,8 +23,8 @@ export default class Layoutcart extends Component {
             </header>
             <hr/>
             <section className="layout-section-body">
-                {cart ? cart.map(item => (
-                  <div className="layout-section-item">
+                {cart ? cart.map((item,index) => (
+                  <div key={index} className="layout-section-item">
                   <div><img src={item.images[0]} width="20%" height="20%" alt=""/></div>
                   <div><h2>{item.name}</h2></div>
                   <span>£{item.price}</span>
