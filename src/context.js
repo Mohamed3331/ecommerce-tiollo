@@ -32,7 +32,7 @@ class ProductProvider extends Component {
     this.getData(); 
   }
 
-  UNSAFE_componentWillUpdate(nextProps,nextState) {
+  componentWillUpdate(nextProps,nextState) {
       localStorage.setItem("user", JSON.stringify(nextState));  
   }
 
