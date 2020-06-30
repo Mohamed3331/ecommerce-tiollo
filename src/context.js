@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Client from "./Contentful";
 import { createClient } from "contentful-management";
 import validator from "email-validator";
-// import { sendEmail } from "./Backend/Email";
+import { sendEmail } from "./Backend/Email";
 
 
 const ProductContext = React.createContext()
@@ -70,10 +70,10 @@ class ProductProvider extends Component {
   
   updateEntry = async (id,count) => {
     const client = createClient({
-    accessToken: process.env.REACT_APP_TOKEN_MANAGEMENT,
+    accessToken: "CFPAT-p_770xD2aZiFwQW9DLRI-4w_8jr0C2dA504-ISPLcxs",
     })
 
-    await client.getSpace(process.env.REACT_APP_API_SPACE)
+    await client.getSpace("7zqu7ohvhyp1")
     .then((space) => space.getEntry(id))
     .then((entry) => {
       entry.fields.quantity['en-US'] = entry.fields.quantity['en-US'] - count
@@ -186,22 +186,23 @@ class ProductProvider extends Component {
   }
 
   placeOrder = () => {
-    // const {email, form, total, subTotal, cart, size} = this.state
+    const {email, form, total, subTotal, cart, size} = this.state
 
-    // let hoho = []
-    // cart.map((item) => {
-    //   return hoho.push( `ItemName: ${item.name}` )
-    // })
+    let hoho = []
+    cart.map((item) => {
+      return hoho.push( `ItemName: ${item.name}` )
+    })
 
-    // if (this.state.email && this.state.form) {
-    //   sendEmail(email, JSON.stringify(form), total, subTotal, hoho, size)
+    if (this.state.email && this.state.form) {
+      sendEmail(email, JSON.stringify(form), total, subTotal, hoho, size)
 
-    //   cart.map(item => {
-    //     this.updateEntry(item.id,item.count)
-    //   })
-    // } else {
-    //   alert('Please continue the checkout process')
-    // }
+      cart.map(item => {
+        this.updateEntry(item.id,item.count)
+        return(item.id)
+      })
+    } else {
+      alert('Please continue the checkout process')
+    }
   }
 
   filterRooms = (choice) => {
