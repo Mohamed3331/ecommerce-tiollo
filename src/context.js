@@ -27,7 +27,7 @@ class ProductProvider extends Component {
   }
 
   componentDidMount() {
-    // this.syncStorage()
+    this.syncStorage()
     this.getTotals();
     this.getData(); 
   }
@@ -36,14 +36,14 @@ class ProductProvider extends Component {
       localStorage.setItem("user", JSON.stringify(nextState));  
   }
 
-  // syncStorage = () => {
-  //   this.userData = JSON.parse(localStorage.getItem("user"));
-  //   if (localStorage.getItem('user')) {
-  //     this.setState({ cart: [...this.userData.cart] } )
-  //   } else {
-  //     this.setState({ cart: [] })
-  //   }
-  // }
+  syncStorage = () => {
+    this.userData = JSON.parse(localStorage.getItem("user"));
+    if (localStorage.getItem('user')) {
+      this.setState({ cart: [...this.userData.cart] } )
+    } else {
+      this.setState({ cart: [] })
+    }
+  }
 
   getData = async () => {
     try {
@@ -185,6 +185,7 @@ class ProductProvider extends Component {
   }
 
   placeOrder = () => {
+
     // const {email, form, total, subTotal, cart, size} = this.state
 
     // let hoho = []
@@ -201,7 +202,7 @@ class ProductProvider extends Component {
     //   })
     // } else {
     //   alert('Please continue the checkout process')
-    //}
+    // }
   }
 
   filterRooms = (choice) => {

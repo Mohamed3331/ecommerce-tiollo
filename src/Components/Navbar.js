@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import {FaShoppingBag} from 'react-icons/fa'
 import $ from "jquery"; 
@@ -16,9 +16,9 @@ function renderTooltip(props) {
 
 
 export default function Navbar({NavWhite}) {
-    // const [isOpen, setStatus] = useState(false)
 
-    // const tata = isOpen === true ? "active-cart" : ""
+    const [isOpen, setisOpen] = useState(false);
+    const tata = isOpen === true ? "navbar-active" : "";
 
     useEffect(() => {
       $(function () {
@@ -39,7 +39,7 @@ export default function Navbar({NavWhite}) {
           <a href="/"> <img src={logo} alt=""/> </a>
         </div>
 
-        <div className="inner-navbar">
+        <div className={"inner-navbar " + tata}>
           <ul className="navlinks">
               <li>TOP CLOTHING
                             <div className="dropdown-links">
@@ -98,10 +98,10 @@ export default function Navbar({NavWhite}) {
                                 </ul>
                             </div>
               </li>
-            </ul>
+          </ul>
         </div>
 
-        <div className="burger">
+        <div onClick={() => setisOpen(!isOpen) } className="burger">
           <div className="burger-line1"></div>
           <div className="burger-line2"></div>
           <div className="burger-line3"></div>
@@ -118,7 +118,7 @@ export default function Navbar({NavWhite}) {
         </OverlayTrigger>
          
          
-         </Link> </div>
+        </Link> </div>
       </div>
     </>    
   )
