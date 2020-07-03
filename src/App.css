@@ -1426,7 +1426,7 @@ html, body {
     text-align: center;
     justify-content: center;
     font-size: 18px;
-    background: #c2c2c2;
+    background: rgb(250, 250, 250);
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -1443,9 +1443,163 @@ html, body {
 
   .swiper-slide img {
     height: 250px;
-    width: 100%;
+    width: 190px;
   }
 
   /* Croussel */
+
+  /* Cart */
+
+  .ArrowDropupCircle {
+      margin-left: 10px;
+      transform: translateY(3px);
+      cursor: pointer;
+  }
+
+  .ArrowDropdownCircle {
+      margin-right: 10px;
+      transform: translateY(3px);
+      cursor: pointer;
+  }
+
+  .cart-container {
+    margin: 0px;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 200px;
+  }
+
+  .cart-subtotal-price {
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid;
+  }
+
+  .cart-subtotal-price-breakline {
+    display: none;
+  }
+
+  .cart-subtotal-price-buttons {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    max-width: 100%;
+  }
+
+  .cart-subtotal-price-clearcart-button {
+    background-color:#000000;
+    border-radius:4px;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    padding:10px 30px;
+    text-decoration:none;
+    transition: 0.3s;
+    float: left;
+    border: 2px solid black;
+    letter-spacing: 1px;
+  }
+
+  .cart-subtotal-price-clearcart-button:active {
+    position:relative;
+    top:1px;
+    background-color:#ffffff;
+    border: solid 1px black;
+    color:#000000;
+  }
+
+  .cart-subtotal-price-checkout-button {
+    background-color:#000000;
+    border-radius:4px;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    padding:10px 30px;
+    text-decoration:none;
+    transition: 0.3s;
+    float: right;
+    border: 2px solid black;
+    letter-spacing: 1px;
+  }
+
+  .image-td-cartItem {
+    transition: 0.5s;
+  }
+
+  .image-td-cartItem:hover {
+    transform: scale(0.9);
+  }
+
+  .cart-subtotal-price-checkout-button:active {
+    position:relative;
+    top:1px;
+    background-color:#ffffff;
+    border: solid 1px black;
+    color:#000000;
+  }
+
+  table.blueTable tbody td:first-child {
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  table.blueTable {
+    background-color: (250, 250, 250);
+    max-width: 100%;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    border-collapse: collapse;
+  }
+
+  table.blueTable td, table.blueTable th {
+    border: 0px solid (250, 250, 250);
+  }
+
+  table.blueTable tbody td {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #000000;
+  }
+
+  table.blueTable tbody td:last-child {
+    font-size: 17px;
+    font-weight: 900;
+  }
+
+  table.blueTable thead {
+    background: (250, 250, 250);
+    border-bottom: 1px solid #000000;
+  }
+
+  table.blueTable thead th {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-left: 0px solid (250, 250, 250);
+  }
+
+  table.blueTable thead th:first-child {
+    border-left: none;
+    float: left;
+    
+  }
+
+  /* Cart */
+
+
+
+
+
 
 }
