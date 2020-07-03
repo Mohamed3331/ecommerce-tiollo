@@ -33,7 +33,7 @@ export default class Cart extends Component {
               </tr>
             </thead>
             <tbody>
-            {cart.length > 0 ? cart.map((item) => (
+            { cart.map((item) => (
               <CartItem
                 key={item.id}
                 cartItem={item}
@@ -41,7 +41,7 @@ export default class Cart extends Component {
                 decrement={decrementItem}
                 remove={removeItem}
               />
-            )) : <p>Your cart is empty</p>}
+            )) }
             </tbody>
           </table>
 
