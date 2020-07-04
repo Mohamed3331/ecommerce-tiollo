@@ -26,6 +26,17 @@ export default function CartItem({cartItem,increment,decrement,remove}) {
                 <td style={styledTD}> <AiOutlineDownSquare onClick={() => decrement(id)} className="ArrowDropdownCircle" size={30}/> {count} <AiOutlineUpSquare onClick={() => increment(id)} className="ArrowDropupCircle" size={30}/> </td>
                 <td>${totalPrice} <AiFillMinusCircle  onClick={() => remove(id)} style={styledRemoveButton} size={22}/> </td>
             </tr>
+
+            {/* <section className="cart-cartitem-container-mobile">
+            <div className="cart-cartitem-mobile-item-container">
+              <img src={images[0]} alt=""/>
+              <div className="cart-cartitem-mobile-name"> {name} </div>
+              <div className="cart-cartitem-mobile-size">size: <span>{size.map((item) => item.label )}</span> </div>
+            </div>
+              <div className="cart-cartitem-mobile-price">Price: <span>${price}</span> </div>
+              <div className="cart-cartitem-mobile-quantity"> <AiOutlineDownSquare onClick={() => decrement(id)} className="ArrowDropdownCircle" size={30}/> Quantity: <span> {count} </span> <AiOutlineUpSquare onClick={() => increment(id)} className="ArrowDropupCircle" size={30}/> </div>
+              <div className="cart-cartitem-mobile-total"> Total: <span>${totalPrice}</span> <AiFillMinusCircle  onClick={() => remove(id)} style={styledRemoveButton} size={22}/> </div>
+          </section> */}
         </>
     )
 }

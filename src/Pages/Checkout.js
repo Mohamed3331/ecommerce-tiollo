@@ -41,26 +41,17 @@ export default function Checkout() {
     backgroundColor: 'white'
   }
 
-  const styledCard = {
-    border: '0px',
-    backgroundColor: 'white transparent',
-    width: '80rem',
-    marginRight: '0px',
-    borderBottomWidth: 'thin',
-    maxWidth: '55rem',
-  }
-
   const cardHeader = {
     backgroundColor: 'white',
     borderBottom: '0px',
     fontSize: '30px',
-    maxWidth: '40rem',
+    maxWidth: '23rem',
   }
 
   const cardInfo = {
     marginBottom: '20px',
-    marginLeft: '40px',
-    fontSize: '15px'
+    marginLeft: '0px',
+    fontSize: '13px'
   }
 
   const styledDiv = {
@@ -68,10 +59,11 @@ export default function Checkout() {
   }
 
     const styledForm = {
-      width: "50%",
+      width: "100%",
       height: "50px",
       marginRight: "20px",
-      display: "inline"
+      display: "inline",
+      marginBottom: "10px"
     };
 
     const styledInput = {
@@ -112,10 +104,11 @@ export default function Checkout() {
     return (
       <>
         <Bar />
+
           <section className="checkout-accordion-container">
             <Accordion style={styledAccordion} activeKey={toggle} >
             
-              <Card style={styledCard}>
+              <Card className="checkout-card-container-mobile">
 
                 <Accordion.Toggle onClick={() => setToggle("0")} as={Card.Header} style={cardHeader} eventKey="0" >
                   <MdCheckCircle color={checked1} size={30} /> Customer <small>  </small>
@@ -146,7 +139,7 @@ export default function Checkout() {
               </Card>
               <hr />
 
-              <Card style={styledCard}>
+              <Card className="checkout-card-container-mobile">
  
                 <Accordion.Toggle onClick={() => setToggle("1")} as={Card.Header} style={cardHeader} eventKey="1" >
                   <MdCheckCircle color={checked2} size={30} /> Shipping
@@ -343,7 +336,7 @@ export default function Checkout() {
               </Card>
               <hr />
 
-              <Card style={styledCard}>
+              <Card className="checkout-card-container-mobile">
 
                 <Accordion.Toggle onClick={() => setToggle("2")} as={Card.Header} style={cardHeader} eventKey="2">
                   <MdCheckCircle color={checked3} size={30} /> Payment
@@ -369,6 +362,7 @@ export default function Checkout() {
                 </Accordion.Collapse>
               </Card>
             </Accordion>
+
           </section>
            <LayoutCart />
 

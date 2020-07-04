@@ -10,8 +10,8 @@ export default function Crousel() {
 
   useEffect(() => {
     new Swiper('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 2,
+      spaceBetween: 5,
       loop: true,
       loopFillGroupWithBlank: true,
       pagination: {
@@ -23,10 +23,10 @@ export default function Crousel() {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      // autoplay: {
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
     })
   }, [])
 
