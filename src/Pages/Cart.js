@@ -67,7 +67,7 @@ export default class Cart extends Component {
             )) }
           
           <div className="cart-cartitem-mobile-subtotal-container">
-            <div className="cart-cartitem-mobile-subtotal">Subtotal before Delivery Charges: <span>30$</span></div>
+            <div className="cart-cartitem-mobile-subtotal">Subtotal before Delivery Charges: <span>E£{subTotal}</span></div>
             <div className="cart-cartitem-mobile-coupon">Coupon Code: <span>Add Coupon</span> </div>
           </div>
 
