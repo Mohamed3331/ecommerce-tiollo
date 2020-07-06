@@ -16,6 +16,7 @@ body {
   font-family: 'Roboto Slab', serif;
   scroll-behavior: smooth;
   background-color: rgb(250, 250, 250);
+  
 }
 
 a {
@@ -126,16 +127,16 @@ a {
 @keyframes yourlogoAnimation{
     0%{
         transform: translateX(-100px) translateY(-150px) ;
-        }
+      }
     100%{
         transform: translateX(-100px) translateY(-50px) ;
-        }
+      }
 }
 
 .imageHomepage img{
   height: auto;
   width: 100%;
-  object-fit: contain;
+  object-fit: fill;
   background-size: cover;
   overflow: hidden;
 }
@@ -901,7 +902,7 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
 .button-email-form {
     height: 45px;
     width: 250px;
-    display: inline;
+    /* display: inline; */
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 900;
@@ -923,7 +924,7 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
 .checkoutfinish-button-submit {
   height: 45px;
   width: 220px;
-  display: inline;
+  /* display: inline; */
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 900;
@@ -1261,6 +1262,22 @@ box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
     display: none;
   }
 
+  .top-container-mobile {
+    display: none;
+  }
+
+  
+  .product-list-container-mobile {
+    display: none;
+  }
+
+
+
+  
+
+
+
+
 
 /* Mobile view */
 
@@ -1436,6 +1453,7 @@ html, body {
   .product-list-container-mobile {
     margin: 0;
     text-align: center;
+    display: block;
   }
 
   .product-list-container-mobile img {
@@ -1471,6 +1489,18 @@ html, body {
   /* Croussel */
 
   /* bar */
+
+  .bar {
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+    position: relative;
+    align-items: center;
+    min-height: 0vh;
+    width: 100%;
+    z-index:50;
+    top: 0;
+    margin-top: 0px;
+}
 
   .bar .bar-text {
     line-height: 50px;
@@ -1687,7 +1717,7 @@ html, body {
    .button-email-form {
     height: 45px;
     width: 100%;
-    display: inline;
+    /* display: inline; */
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 900;
@@ -1709,7 +1739,7 @@ html, body {
 .checkoutfinish-button-submit {
   height: 45px;
   width: 220px;
-  display: inline;
+  /* display: inline; */
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 900;
@@ -1781,11 +1811,12 @@ html, body {
 .order-summary-cart {
   text-align: center;
   justify-content: center;
-  transform: translateY(12rem);
-  margin-left: 15rem;
-  margin-bottom: 30px;
-  width: 400px;
-  height: 100%;
+  transform: translateY(0rem);
+  margin-top: 100px;
+  margin-left: 0rem;
+  margin-bottom: 00px;
+  width: 100%;
+  height: auto;
   background-color: rgb(255, 255, 255);
   display: inline-block;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.16);
@@ -1877,126 +1908,90 @@ html, body {
 
   /* SingleProduct */
 
-.top-container {
-    margin-left: 200px;
-    margin-right: 100px;
-    max-width: 100rem;
+  .top-container {
+    display: none;
+  }
+  
+  .top-container-mobile {
+    display: block;
+    margin-top: 200px;
+    font-family: 'Varlera round';
+  }
+
+  .top-container-mobile img{
+    display: block;
     width: 100%;
-    margin-top: 180px;
-}
+    height: auto;
+  }
 
-.container-image{
+  .top-container-mobile-list {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    float: left;
-    width:40%;
+    flex-direction: row;
+  }
+
+  .top-container-mobile-list img {
+    padding: 2px;
+    width: 100%;
+    height: auto;
+  }
+
+  .top-container-details-mobile {
+    margin: 10px;
+  }
+
+  .top-container-details-mobile h1{
+    font-size: 33px;
     padding: 5px;
-    margin-left: 200px;
-}
+  }
 
-.container-image img {
-    height: 100%;
-    width: 90%;
-    
-}
+  .top-container-details-mobile span{
+    font-size: 20px;
+    padding: 5px;
+  }
 
-.container-information {
-    text-transform: uppercase;
-    position: fixed;
-    float: right;
-    margin-left: 50rem;
-}
-
-.information-text {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    font-style: italic;
-}
-
-.product-price-number{
-    margin-top: 20px;
-      font-size: 16px;
-    font-weight: bold;
-}
-
-.information-text-break-line hr{
-  max-width: 18rem;
-}
-
-.product-text-size {
-    margin-top: 30px;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 2px;
-}
-
-.gotag-logo {
-    transform: translateY(3px);
-}
-
-.myButton-cart {
-	background-color: rgb(255, 255, 255);
+  .top-container-details-mobile button{
+    background-color: #a78080;
     border-radius:8px;
-    border:2px solid;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Arial;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#fbfbfb;
+	  font-family:Arial;
     font-size:13px;
     letter-spacing: 2px;
-	padding:12px 29px;
-    margin-top: 30px;
+    padding:12px 29px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     transition: 0.3s;
-}
+  }
 
-.myButton-cart:hover {
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    border-color: black 1px;
+   .top-container-details-mobile:active button{
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
     transition: 0.3s ease-in-out;
-}
+  }
 
-.accordion-buttonn {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 1s;
-  text-align: center;
-}
+  .top-container-description-mobile {
+    margin-top: 20px;
+    font-size: 18px;
+  }
 
-.active, .accordion-buttonn:hover {
-  background-color: #ccc; 
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: rgb(251, 251, 251);
-  overflow: hidden;
-  border: thin black 1px;
-  transition: 1s;
-}
-
-.accordion-container {
-    max-width: 35rem;
-    margin-top: 30px;
-      transition: 1s;
+  .accordion-container {
+    max-width: 100%;
 }
 
 .accordion-container p {
   text-transform: capitalize;
-  font-weight: 600;
-  font-size: 11px;
+  font-weight: 300;
+  font-size: 15px;
   letter-spacing: 1px;
 }
 
-/* SingleProduct */
 
+
+/* SingleProduct */
 
 }
