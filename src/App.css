@@ -35,10 +35,10 @@ a {
 }
 
 .WhiteNav {
-  border-radius: 5%;
-  top: 1%;
   background-color: #ffffff;
+  min-height: 14vh;
 }
+
 
 .navbar:hover {
   background-color: white;
@@ -133,12 +133,19 @@ a {
       }
 }
 
-.imageHomepage img{
-  height: auto;
-  width: 100%;
-  object-fit: fill;
-  background-size: cover;
-  overflow: hidden;
+.imageHomepage{
+    background-image: url('https://i.imgur.com/ZeOK0gz.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    height: 100vh;
+    left: 0;
+    border-width: 0px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 100%;
 }
 
 .dropdown-links {
@@ -1203,12 +1210,19 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
   padding: 50px;
   padding-right: 250px;
   padding-left: 250px;
+   text-align: center;
+} 
+
+.container-above span{
+  font-family: 'Valera round';
+  font-size: 45px;
 } 
 
  .image-container {
   height: 100%;
   width: 100%;
   margin: 5px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1281,7 +1295,7 @@ box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
 
 /* Mobile view */
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:850px) {
 
 html, body {
   overflow-x:hidden 
@@ -1385,9 +1399,16 @@ html, body {
 
     /* navbar */
 
+    .imageHomepage{
+      background-image: url("https://i.imgur.com/ZeOK0gz.jpg");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
    .image img{
-    height: auto;
-    width: 100%;
+    display: none;
   }
 
   .image-home-text {
@@ -1914,7 +1935,7 @@ html, body {
   
   .top-container-mobile {
     display: block;
-    margin-top: 200px;
+    margin-top: 100px;
     font-family: 'Varlera round';
   }
 

@@ -19,7 +19,6 @@ import JumptronLanding from './JumptronLanding'
 import Crousel from './Crousel'
 import Aos from "aos"
 import 'aos/dist/aos.css';
-import homepage from '../Images/womeninshoes.jpg'
 
 export default function Jumptron() {
   useEffect(() => {
@@ -31,7 +30,7 @@ export default function Jumptron() {
     return (
       <>
         <div className="imageHomepage WhiteNav">
-          <img src={homepage} alt="" />
+          {/* <img src={homepage} alt="" /> */}
           <div className="image-home-text">
             Explore <IoIosArrowDown className="image-home-text-icon" />{" "}
           </div>
@@ -58,7 +57,9 @@ export default function Jumptron() {
         </section>
 
         <div className="container-above">
+        <span>Featured Products</span>
           <section className="image-container">
+          
             <div data-aos="fade-right" className="image-item">
               <img src={image1} alt="" />
               <p className="caption">Hijab Dresses</p>

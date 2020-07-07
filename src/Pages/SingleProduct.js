@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import {ProductContext} from '../context'
 import Navbar from '../Components/Navbar'
-import Bar from '../Components/Bar'
 import SizesFilter from '../Components/SizesFilter'
-// import Swiper from 'swiper'
-import image1 from '../Images/klasik.jpg'
 
 export default class SingleProduct extends Component {
     state = {
@@ -48,7 +45,6 @@ export default class SingleProduct extends Component {
         return (
             <>
                 <Navbar NavWhite="WhiteNav"/>
-                <Bar/>
 
                 <section className="top-container">
                     <div className="container-image">
@@ -105,7 +101,6 @@ export default class SingleProduct extends Component {
                             <div className="accordion-container">
                             <button className="accordion-buttonn" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Information</button>
                             <div className="panel"  style={panel1}>
-                            <p>{product.information}</p>
                             <p>One Size: Length: 119cm, Across Width (Bust): 54cm, Waist: 42", Sleeve: 11cm.</p>
                             <p>40% Cotton, 40% Viscose, 20% Polyester.</p>
                             </div>
