@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import Form from "react-bootstrap/Form";
 import Card from 'react-bootstrap/Card'
 import Button from "react-bootstrap/Button";
-import Bar from '../Components/Bar'
+import Navbar from '../Components/Navbar'
 import { MdCheckCircle } from 'react-icons/md';
 import { IoMdAlert } from 'react-icons/io';
 import { Formik } from 'formik';
@@ -103,7 +103,7 @@ export default function Checkout() {
     
     return (
       <>
-        <Bar />
+        <Navbar />
 
           <section className="checkout-accordion-container">
             <Accordion style={styledAccordion} activeKey={toggle} >

@@ -1256,25 +1256,21 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
     animation: yourAnimation 1s forwards 0s ease;
 }
 
-.image-item img {
-  width: 410px;
-  height: 570px;
-  transition: 0.8s;
-      -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
--moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
-}
+  .image-item img {
+    width: 410px;
+    height: 570px;
+    transition: 0.8s;
+        -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
+  -moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
+  box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.40);
+  }
 
-.image-item:hover img, .caption {
+  .image-item:hover img, .caption {
     border-radius: 20%;
     transform: scale(1.2);
     color: rgb(255, 134, 154);
-
-}
-
-  .swiper-container {
-    display: none;
   }
+
 
   .top-container-mobile {
     display: none;
@@ -1304,10 +1300,12 @@ html, body {
   /* navbar */
 
   .navbar {
-    background-color: white;
+    background-color: transparent;
     position: relative;
+    transition: 0.5s;
     width: 100%;
-  }
+    position: relative;
+  } 
 
   .logo{
     left: 50%;
@@ -1330,6 +1328,7 @@ html, body {
     height: 3px;
     background-color: black;
     margin: 2px;
+    transition: all 0.5s ease;
   } 
 
   .inner-navbar {
@@ -1338,7 +1337,7 @@ html, body {
     right: 0px;
     height: auto;
     top: 12vh;
-    background-color: #a0a0a0;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1351,6 +1350,18 @@ html, body {
     transform: translateX(0%);
   }
 
+  .navbar-active .burger-line1 {
+    transform: rotate(-45deg) translate(-4px,6px);
+  }
+
+  .navbar-active .burger-line2 {
+    opacity: 0;
+  }
+
+  .navbar-active .burger-line3 {
+    transform: rotate(45deg) translate(-4px,-6px);
+  }
+
   .inner-navbar ul{
     display: flex;
     flex-direction: column;
@@ -1358,16 +1369,21 @@ html, body {
   }
 
   .navlinks li {
-    letter-spacing: 2px;
-    color: rgb(255, 255, 255);
+    color: #a78080;
     padding: 0px;
-    line-height: 1;
+    line-height: 3;
+    font-family: 'Valera Round';
+    font-weight: 100;
+    font-size: 5px;
+    letter-spacing: 3px;
   }
 
   .navbar ul li:hover .dropdown-links {
     display: block;
     position: relative;
-    width: 200px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
     background-color: none;
     margin-left: 2px;
     margin-top: 2px;
@@ -1381,19 +1397,22 @@ html, body {
     justify-content: center;
     flex-direction: column;
     margin: 2px;
+    border-left: 1px solid black;
   }
 
   .navbar ul li:hover .dropdown-links ul li{
-    background: transparent;
-    text-align: center;  
+    background: transparent; 
     padding-top: 20px;
     transition: 1s;
+    
   }
 
 
   .navbar ul li .dropdown-links ul li a{
-    color: #ff0000 !important;
+    color: #070707 !important;
     transition: 0.5s;
+    font-family: 'Valera Round';
+    font-size: 11px;
     text-decoration: none;
   }
 
@@ -1401,9 +1420,11 @@ html, body {
 
     .imageHomepage{
       background-image: url("https://i.imgur.com/ZeOK0gz.jpg");
-      background-position: 50% 50%;
+      background-position: 50% -50%;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      
+      position: relative;
       background-size: cover;
     }
 
@@ -1413,14 +1434,9 @@ html, body {
 
   .image-home-text {
     position: absolute;
-    top:40%;
+    top:50%;
     font-size: 20px;
-    color: #f16868;
-  }
-
-  .image-home-text-icon {
-    transform: translate(-50%, -50%);
-    margin-top: 10px;
+    color: #000000;
   }
 
   .cart-icon-icon-container {
@@ -1437,6 +1453,14 @@ html, body {
   padding-right: 0px;
   padding-left: 0px;
   } 
+
+  .container-above span {
+    display: none;
+  }
+
+  .jumptron-header-one{
+  display: none;
+}
   
 
   .jumpotron-two {
@@ -1469,6 +1493,38 @@ html, body {
   font-weight: 800;
 } 
 
+.section-intro-information-bar {
+  background-color: #f1f1f1;
+  margin-bottom: 50px;
+  padding: 25px;
+   
+}
+
+  .section-information-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+.div-information-bar {
+  position: relative;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ width: 270px;
+}
+
+.div-information-bar h3 {
+  padding: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding-top: 35px;
+}
+
   /* Croussel */
 
   .product-list-container-mobile {
@@ -1487,6 +1543,7 @@ html, body {
     font-family: 'Varela Round';
     font-size: 30px;
     font-weight: 100;
+    display: block;
   }
 
   .product-list-details-mobile {
@@ -1793,7 +1850,7 @@ html, body {
     margin-right: -10px;
     max-width: 0rem;
     width: 0% ;
-    margin-top: 230px;
+    margin-top: 50px;
     float: right;
   }
 
@@ -1826,8 +1883,6 @@ html, body {
   font-weight: 700;
   transition: 0.5s;
 }
-
-
 
 .order-summary-cart {
   text-align: center;
@@ -1874,51 +1929,6 @@ html, body {
   display: inline-block;
 }
 
-.layout-section-item img{
-  float: left;
-}
-
-.layout-section-item span{
-  float: right;
-}
-
-.layout-section-subtotal-item, .layout-section-total-item, .layout-section-total-item-shipping {
-  height: 40px;
-}
-
-.layout-section-subtotal-item div{
-  float: left;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.layout-section-subtotal-item span{
-  float: right;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.layout-section-total-item-shipping span{
-  float: left;
-  padding: 10px;
-  font-weight: bold;
-}
-
-.layout-section-total-item div{
-  float: left;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.layout-section-total-item span{
-  float: right;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-} 
 
   /* checkout */
 

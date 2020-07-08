@@ -52,6 +52,7 @@ export default function Jumptron() {
             <div className="div-information-bar">
               <h3> <TiArrowSync size={20}/> SIMPLE RETURNS</h3>
             </div>
+            
           </section>
 
         </section>

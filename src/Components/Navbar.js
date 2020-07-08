@@ -101,7 +101,7 @@ export default function Navbar({NavWhite}) {
           </ul>
         </div>
 
-        <div onClick={() => setisOpen(!isOpen) } className="burger">
+        <div onClick={() => setisOpen(!isOpen) } className={"burger " + tata}>
           <div className="burger-line1"></div>
           <div className="burger-line2"></div>
           <div className="burger-line3"></div>

@@ -156,8 +156,8 @@ class ProductProvider extends Component {
   }
 
   getTotals () {
-    let subTotal = 0;
-    this.state.cart.forEach(item => { subTotal += item.totalPrice })
+    let subTotal = 0
+    this.userData.cart.forEach(item => { subTotal += item.totalPrice })
     subTotal = parseFloat(subTotal.toFixed(2));
     let total = subTotal;
     total = parseFloat(total.toFixed(2));
@@ -253,7 +253,7 @@ class ProductProvider extends Component {
   render() {    
     return (
       <>
-        <ProductContext.Provider value={{...this.state ,getItemSizeID: this.getItemSizeID, getItemSize: this.getItemSize, clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, authSignOut: this.authSignOut ,authWithFacebook:this.authWithFacebook, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
+        <ProductContext.Provider value={{...this.state ,getItemSizeID: this.getItemSizeID, getTotals: this.getTotals, getItemSize: this.getItemSize, clearCart: this.clearCart, filterRooms: this.filterRooms, placeOrder: this.placeOrder, updateOrderDetails: this.updateOrderDetails, emailValidator: this.emailValidator, removeItem: this.removeItem, decrementItem: this.decrementItem, incrementItem: this.incrementItem, getCardItem:this.getCardItem, getProducts:this.getProducts, getProduct:this.getProduct}}>
           {this.props.children}
         </ProductContext.Provider>
 

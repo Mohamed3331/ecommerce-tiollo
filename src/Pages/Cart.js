@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import NavBar from '../Components/Navbar'
-// import Bar from '../Components/Bar'
 import {ProductContext} from '../context'
 import CartItem from '../Components/CartItem'
 import CartItemMobile from '../Components/CartItemMobile'
@@ -10,8 +9,6 @@ export default class Cart extends Component {
     
   static contextType = ProductContext
 
-     
-
     render() {
       
     const { cart, clearCart, incrementItem, decrementItem, subTotal, removeItem } = this.context  
@@ -19,7 +16,6 @@ export default class Cart extends Component {
     return (
       <>
         <NavBar NavWhite="WhiteNav"/>
-        {/* <Bar/> */}
 
         <div className="cart-container">
           <table className="blueTable">
