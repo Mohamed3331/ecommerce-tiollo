@@ -1301,6 +1301,115 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
 
 /* Mobile view */
 
+
+@media only screen and (max-width:1750px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 40rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 40rem;
+  max-width: 100%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 15rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
+.jumpotron-text-side span{
+  font-size: 14px;
+  color: white;
+  font-weight: 800;
+}
+
+
+}
+
+@media only screen and (max-width:1350px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 30rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 30rem;
+  max-width: 50%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 10rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
+
+}
+
+@media only screen and (max-width:1000px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 23rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 23rem;
+  max-width: 70%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 1rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
+}
+
+
 @media only screen and (max-width:850px) {
 
 html, body {
@@ -1478,30 +1587,10 @@ html, body {
   width: 100%;
   height: 40rem;
   background-color: #3D4853;
+  display: none;
 }
 
-.jumpotron-two img{
-  height: auto;
-  width: 100%;
-}
 
-.jumpotron-text-side{
-  line-height: 30px;
-  margin: 10px;
-  max-width: 50rem;
-  padding: 1rem;
-  letter-spacing: 2px;
-  overflow-wrap: break-word;
-  text-align: left;
-  float: right;
-  text-align-last: left;
-}
-
-.jumpotron-text-side span{
-  font-size: 14px;
-  color: white;
-  font-weight: 800;
-} 
 
 .bombo-container {
   display: none;
@@ -2059,115 +2148,6 @@ html, body {
 
 
 
-/* SingleProduct */
-
 }
 
 
-@media only screen and (max-width:1750px) { 
-  .jumpotron-two {
-  margin-top: 100px;
-  width: 100%;
-  height: 40rem;
-  background-color: #3D4853;
-  position: relative;
-}
-
-.jumpotron-two img{
-  height: 40rem;
-  max-width: 100%;
-  float: right;
-}
-
-.jumpotron-text-side{
-  font-size: 22px;
-  color: white;
-  font-weight: 800;
-  line-height: 38px;
-  margin: 2px;
-  max-width: 100%;
-  padding-top: 15rem;
-  padding-left: 20px;
-  letter-spacing: 1px;
-  overflow-wrap: break-word;
-  text-align: left;
-  float: none;
-  text-align-last: left;
-}
-
-.jumpotron-text-side span{
-  font-size: 14px;
-  color: white;
-  font-weight: 800;
-}
-
-
-}
-
-@media only screen and (max-width:1350px) { 
-  .jumpotron-two {
-  margin-top: 100px;
-  width: 100%;
-  height: 30rem;
-  background-color: #3D4853;
-  position: relative;
-}
-
-.jumpotron-two img{
-  height: 30rem;
-  max-width: 50%;
-  float: right;
-}
-
-.jumpotron-text-side{
-  font-size: 22px;
-  color: white;
-  font-weight: 800;
-  line-height: 38px;
-  margin: 2px;
-  max-width: 100%;
-  padding-top: 10rem;
-  padding-left: 20px;
-  letter-spacing: 1px;
-  overflow-wrap: break-word;
-  text-align: left;
-  float: none;
-  text-align-last: left;
-}
-
-
-}
-
-@media only screen and (max-width:1000px) { 
-  .jumpotron-two {
-  margin-top: 100px;
-  width: 100%;
-  height: 23rem;
-  background-color: #3D4853;
-  position: relative;
-}
-
-.jumpotron-two img{
-  height: 23rem;
-  max-width: 70%;
-  float: right;
-}
-
-.jumpotron-text-side{
-  font-size: 22px;
-  color: white;
-  font-weight: 800;
-  line-height: 38px;
-  margin: 2px;
-  max-width: 100%;
-  padding-top: 1rem;
-  padding-left: 20px;
-  letter-spacing: 1px;
-  overflow-wrap: break-word;
-  text-align: left;
-  float: none;
-  text-align-last: left;
-}
-
-
-}
