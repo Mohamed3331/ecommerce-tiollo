@@ -12,6 +12,7 @@ class ProductProvider extends Component {
 
   state = {
     products: [],
+    sortedProducts: [],
     cart: [],
     maxPrice: 0,
     minPrice: 0,
@@ -58,6 +59,7 @@ class ProductProvider extends Component {
         
       this.setState({
         products: products,
+        sortedProducts: products,
         maxPrice: maxPrice,
         minPrice: minPrice
       });

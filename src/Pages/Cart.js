@@ -15,7 +15,7 @@ export default class Cart extends Component {
     
     return (
       <>
-        <NavBar NavWhite="WhiteNav"/>
+        <NavBar NavWhite="NavResp"/>
 
         <div className="cart-container">
           <table className="blueTable">
@@ -49,6 +49,8 @@ export default class Cart extends Component {
           <button onClick={clearCart} className="cart-subtotal-price-clearcart-button">Clear Cart</button>
           <Link style={{textDecoration: 'none'}} to="/checkout"> <button className="cart-subtotal-price-checkout-button"> Checkout </button> </Link>
         </div>
+
+        
 
         <div className="cart-container-mobile">
 

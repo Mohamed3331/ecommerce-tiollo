@@ -25,10 +25,9 @@ a {
 
 .navbar {
   width: 100%;
-  position: relative;
+  position: fixed;
   min-height: 12vh;
   top: 0%;
-  position: fixed;
   background-color: transparent;
   transition: 0.5s;
   z-index: 100;
@@ -38,6 +37,13 @@ a {
   background-color: #ffffff;
   min-height: 14vh;
 }
+
+.NavResp {
+  background-color: #ffffff;  
+  position: relative;
+  min-height: 14vh;
+}
+
 
 
 .navbar:hover {
@@ -700,7 +706,7 @@ transform: scale(1.1);
     justify-content: center;
     text-align: center;
     width: 60%;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 .cart-subtotal-price {
@@ -736,6 +742,7 @@ transform: scale(1.1);
   transition: 0.3s;
   float: left;
   border: 2px solid black;
+  margin-bottom: 30px;
 }
 
 .cart-subtotal-price-clearcart-button:hover {
@@ -761,6 +768,7 @@ transform: scale(1.1);
   transition: 0.3s;
   float: right;
   border: 2px solid black;
+  margin-bottom: 30px;
 }
 
 .image-td-cartItem {
@@ -1281,7 +1289,9 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
     display: none;
   }
 
-
+  .footer-icons-display {
+    display: none;
+  }
 
   
 
@@ -1479,7 +1489,7 @@ html, body {
   line-height: 30px;
   margin: 10px;
   max-width: 50rem;
-  padding: 2rem;
+  padding: 1rem;
   letter-spacing: 2px;
   overflow-wrap: break-word;
   text-align: left;
@@ -1488,10 +1498,36 @@ html, body {
 }
 
 .jumpotron-text-side span{
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   font-weight: 800;
 } 
+
+.bombo-container {
+  display: none;
+}
+
+  .footer-icons-display {
+    display: block;
+  }
+
+.bombo {
+  color: #A78080;
+  padding: 6px;
+  margin: 5px;
+   border-radius: 50%;
+  border: 2px #ffffff;
+  transition: 0.3s;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+.bombo:hover {
+  color: rgb(255, 255, 255);
+  background-color: #dddddd;
+  border: 2px none;
+}
 
 .section-intro-information-bar {
   background-color: #f1f1f1;
@@ -2024,5 +2060,114 @@ html, body {
 
 
 /* SingleProduct */
+
+}
+
+
+@media only screen and (max-width:1750px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 40rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 40rem;
+  max-width: 100%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 15rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
+.jumpotron-text-side span{
+  font-size: 14px;
+  color: white;
+  font-weight: 800;
+}
+
+
+}
+
+@media only screen and (max-width:1350px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 30rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 30rem;
+  max-width: 50%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 10rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
+
+}
+
+@media only screen and (max-width:1000px) { 
+  .jumpotron-two {
+  margin-top: 100px;
+  width: 100%;
+  height: 23rem;
+  background-color: #3D4853;
+  position: relative;
+}
+
+.jumpotron-two img{
+  height: 23rem;
+  max-width: 70%;
+  float: right;
+}
+
+.jumpotron-text-side{
+  font-size: 22px;
+  color: white;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 2px;
+  max-width: 100%;
+  padding-top: 1rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+  text-align: left;
+  float: none;
+  text-align-last: left;
+}
+
 
 }
