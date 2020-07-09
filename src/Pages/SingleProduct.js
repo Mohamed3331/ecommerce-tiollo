@@ -16,9 +16,6 @@ export default class SingleProduct extends Component {
 
     static contextType = ProductContext
 
-    componentDidMount() {
-        
-    }
 
     render() {     
         const activePanel = {

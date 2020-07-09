@@ -41,6 +41,7 @@ export default function SizesFilter({id}) {
                     noOptionsMessage={() => 'No more Sizes'}
                     autoFocus
                     isMulti
+                    isSearchable={false}
                     components={animatedComponents}
                     placeholder="Choose up to 2 Sizes"
                     onChange={getItemSize}

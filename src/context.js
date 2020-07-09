@@ -29,7 +29,6 @@ class ProductProvider extends Component {
 
   componentDidMount() {
     this.syncStorage()
-    this.getTotals();
     this.getData(); 
   }
 
@@ -112,13 +111,20 @@ class ProductProvider extends Component {
 
   getCardItem = id => {
     let tempProducts = [...this.state.products];
-    let tempItem = this.state.cart.find(item => item.id === id);
-    if (!tempItem) {
-      tempItem = tempProducts.find(item => item.id === id);
+    let tempItem = tempProducts.find(item => item.id === id);
+    // if (!tempItem) {
+    //   tempItem = tempProducts.find(item => item.id === id);
+    //   this.setState({ cart: [ tempItem, ...this.state.cart] })
+    // }
+    let tempCartItem = this.state.cart.find(item => item.id === id);
+
+    if (tempItem && !tempCartItem) {
       this.setState({ cart: [ tempItem, ...this.state.cart] })
+    } else {
+      console.log('something went wrong');
     }
 
-    this.setState( () => {this.getTotals()} )
+    this.getTotals()
   }
 
   incrementItem = id => {
@@ -158,14 +164,11 @@ class ProductProvider extends Component {
   }
 
   getTotals () {
-    let subTotal = 0
-    this.userData.cart.forEach(item => { subTotal += item.totalPrice })
-    subTotal = parseFloat(subTotal.toFixed(2));
-    let total = subTotal;
-    total = parseFloat(total.toFixed(2));
-    this.setState(() => {
-      return { subTotal: subTotal, total: total }
-    });
+    let subTotals = 0
+    this.state.cart.forEach(item => subTotals += item.totalPrice )
+    subTotals = parseFloat(subTotals.toFixed(2));
+    let total = subTotals;
+    this.setState( { subTotal: subTotals, total: total } );
   }
 
   emailValidator = (email) => {

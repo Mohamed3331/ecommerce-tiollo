@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { AiOutlineDownSquare } from 'react-icons/ai';
 import { AiOutlineUpSquare } from 'react-icons/ai';
 import {Link} from 'react-router-dom'
 
-export default function CartItem({cartItem,increment,decrement,remove}) {
+export default function CartItem({cartItem,increment,decrement,remove,getTotals}) {
     const { id, slug, price, count, name, images, totalPrice, size } = cartItem
     
     const styledTD = {
@@ -16,6 +16,8 @@ export default function CartItem({cartItem,increment,decrement,remove}) {
         cursor: "pointer",
         float: 'right'
       }
+
+      useEffect(() => getTotals, [getTotals]);
 
     return (
         <>

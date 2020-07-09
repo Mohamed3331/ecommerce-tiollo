@@ -12,7 +12,7 @@ export default class Cart extends Component {
     render() {
       
     const { cart, clearCart, incrementItem, decrementItem, subTotal, removeItem } = this.context  
-    
+
     return (
       <>
         <NavBar NavWhite="NavResp"/>
