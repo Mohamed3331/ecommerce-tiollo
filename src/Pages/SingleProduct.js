@@ -43,7 +43,7 @@ export default class SingleProduct extends Component {
         
         return (
             <>
-                <Navbar NavWhite="WhiteNav"/>
+                <Navbar NavWhite="NavResp"/>
 
                 <section className="top-container">
                     <div className="container-image">

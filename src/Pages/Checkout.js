@@ -103,7 +103,7 @@ export default function Checkout() {
     
     return (
       <>
-        <Navbar />
+        <Navbar NavWhite="NavResp"/>
 
           <section className="checkout-accordion-container">
             <Accordion style={styledAccordion} activeKey={toggle} >

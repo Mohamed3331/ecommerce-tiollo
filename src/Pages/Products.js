@@ -28,7 +28,7 @@ export default class Products extends Component {
 
         return (
             <div>
-                <Navbar NavWhite="WhiteNav"/>
+                <Navbar NavWhite="NavResp"/>
                 <Bar/>
                 <ProductContainer/>
                 <section className="productlist">
