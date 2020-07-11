@@ -54,7 +54,7 @@ export default class Cart extends Component {
 
         <div className="cart-container-mobile">
 
-           { cart.map((item) => (
+           { cart.length > 0 ? cart.map((item) => (
               <CartItemMobile
                 key={item.id}
                 cartItem={item}
@@ -62,7 +62,7 @@ export default class Cart extends Component {
                 decrement={decrementItem}
                 remove={removeItem}
               />
-            )) }
+            )) : 'Your Cart Is Empty' }
           
           <div className="cart-cartitem-mobile-subtotal-container">
             <div className="cart-cartitem-mobile-subtotal">Subtotal before Delivery Charges: <span>E£{subTotal}</span></div>
@@ -71,7 +71,7 @@ export default class Cart extends Component {
 
           <div className="cart-cartitem-mobile-buttons-container">
           <Link style={{color: "white"}} to="/checkout"> <button className="cart-subtotal-price-checkout-button-mobile"> Checkout </button> </Link>
-            <button className="cart-subtotal-price-clearcart-button-mobile">Clear cart</button>
+            <button onClick={clearCart} className="cart-subtotal-price-clearcart-button-mobile">Clear cart</button>
           </div>
 
         </div>

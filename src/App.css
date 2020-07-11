@@ -144,6 +144,7 @@ a {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    position: 50% 50%;
     color: #FFFFFF;
     height: 100vh;
     left: 0;
@@ -1299,6 +1300,18 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* Mobile view */
 
 
@@ -1439,6 +1452,21 @@ html, body {
   .WhiteNav {
     display: block;
   }
+
+  .imageHomepage{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: 50% 50%;
+    color: #FFFFFF;
+    height: 100vh;
+    left: 0;
+    border-width: 0px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
 
   .burger {
     display: flex;

@@ -78,6 +78,11 @@ export default function Checkout() {
       height: "px",
      };
 
+     const styledModalText = {
+       fontSize: "30px",
+       fontWeight: "bold"
+     }
+
   function MyVerticallyCenteredModal(props) {
   return (
     <Modal
@@ -93,6 +98,7 @@ export default function Checkout() {
         <h2> <FaCheck size={30} color={"green"}/> Order Successfully </h2> 
         <br/>
         <br/>
+        <h5 stlye={styledModalText}>Thanks for shopping with us!</h5>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
