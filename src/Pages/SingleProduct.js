@@ -58,8 +58,7 @@ export default class SingleProduct extends Component {
                         <div className="information-text-break-line"><hr/></div>
                         <div className="product-price-number">{`E£ ${product.price}`}</div>
                         <div className="product-text-size"> <SizesFilter id={this.state.id}/> </div>
-                        <button className="myButton-cart" onClick={() => {getCardItem(this.state.id); this.setState({added: true}); } }> { this.state.added === false ? 'Add to Cart' : 'Added'} </button>
-                        
+                        <button className="myButton-cart" onClick={() => {getCardItem(this.state.id); product.size.length > 0 ? this.setState({added: true}) : this.setState({added: false}) } }> {this.state.added === false ? 'Add to Cart' : 'Added'} </button>
                           <div className="accordion-container">
                             <button className="accordion-buttonn" onClick={() => this.setState({isOpenFirst: !this.state.isOpenFirst}) }>Information</button>
                             <div className="panel"  style={panel1}>

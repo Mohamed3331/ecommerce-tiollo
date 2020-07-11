@@ -33,6 +33,7 @@ export default function Filter() {
             options={options}
             onChange={filterRooms}
             theme={customeTheme}
+            isSearchable={false}
             autoFocus
             placeholder="Filter here"
             />
