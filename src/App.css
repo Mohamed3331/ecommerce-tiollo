@@ -139,7 +139,7 @@ a {
       }
 }
 
-.imageHomepage{
+/* .imageHomepage{
     background-image: url('https://i.imgur.com/ZeOK0gz.jpg');
     background-repeat: no-repeat;
     background-attachment: static;
@@ -152,7 +152,7 @@ a {
     text-align: center;
     top: 0;
     width: 100%;
-}
+} */
 
 .dropdown-links {
   display: none;
@@ -1452,7 +1452,7 @@ html, body {
     display: block;
   }
 
-  .imageHomepage{
+  /* .imageHomepage{
     background-repeat: no-repeat;
     background-attachment: static;
     background-size: cover;
@@ -1464,7 +1464,7 @@ html, body {
     text-align: center;
     top: 0;
     width: 100%;
-}
+} */
 
   .burger {
     display: flex;
@@ -1571,16 +1571,6 @@ html, body {
   }
 
     /* navbar */
-
-    .imageHomepage{
-      background-image: url("https://i.imgur.com/ZeOK0gz.jpg");
-      background-position: 50% -50%;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      
-      position: relative;
-      background-size: cover;
-    }
 
   .image-home-text {
     position: absolute;
