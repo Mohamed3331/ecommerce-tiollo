@@ -139,20 +139,21 @@ a {
       }
 }
 
-/* .imageHomepage{
+.imageHomepage{
     background-image: url('https://i.imgur.com/ZeOK0gz.jpg');
     background-repeat: no-repeat;
     background-attachment: static;
     background-size: cover;
     color: #FFFFFF;
     height: 100vh;
+    background-position: 50% 50%;
     left: 0;
     border-width: 0px;
     position: relative;
     text-align: center;
     top: 0;
     width: 100%;
-} */
+}
 
 .dropdown-links {
   display: none;
@@ -1452,19 +1453,6 @@ html, body {
     display: block;
   }
 
-  /* .imageHomepage{
-    background-repeat: no-repeat;
-    background-attachment: static;
-    background-size: cover;
-    color: #FFFFFF;
-    height: 100vh;
-    left: 0;
-    border-width: 0px;
-    position: relative;
-    text-align: center;
-    top: 0;
-    width: 100%;
-} */
 
   .burger {
     display: flex;
