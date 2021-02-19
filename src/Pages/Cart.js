@@ -6,7 +6,7 @@ import CartItem from '../Components/CartItem'
 import CartItemMobile from '../Components/CartItemMobile'
 
 export default class Cart extends Component {
-    
+
   static contextType = ProductContext
 
     render() {
@@ -15,6 +15,7 @@ export default class Cart extends Component {
 
     return (
       <>
+        
         <NavBar NavWhite="NavResp"/>
 
         <div className="cart-container">
@@ -42,10 +43,12 @@ export default class Cart extends Component {
             </tbody>
           </table>
 
+          <img src="" alt=""/>
+
         </div>
         <div className="cart-subtotal-price">Subtotal Before Delivery Charges : {subTotal} </div>
         <hr className="cart-subtotal-price-breakline"/> 
-        <div  className="cart-subtotal-price-buttons">
+        <div className="cart-subtotal-price-buttons">
           <button onClick={clearCart} className="cart-subtotal-price-clearcart-button">Clear Cart</button>
           <Link style={{textDecoration: 'none'}} to="/checkout"> <button className="cart-subtotal-price-checkout-button"> Checkout </button> </Link>
         </div>

@@ -5,19 +5,39 @@ import Navbar from '../Components/Navbar'
 import SizesFilter from '../Components/SizesFilter'
 
 export default class SingleProduct extends Component {
-    state = {
-        id: this.props.match.params.id,
-        isOpenFirst: true,
-        isOpenSecond: true,
-        isOpenThird: true,
-        added: false,
-        sizes: []
+    constructor(props) {
+        super(props);
+        this.myImageRef = React.createRef();
+            this.state = {
+            id: this.props.match.params.id,
+            isOpenFirst: true,
+            isOpenSecond: true,
+            isOpenThird: true,
+            added: false,
+            sizes: []
+        }
+    }
+    
+    focusTextInput() {
+        this.myImageRef.current.classList.add('active')
+        console.log(this.myImageRef.current.classList);
     }
 
+    // componentDidMount() {
+    //     this.myImageRef.current.addEventListener('load', this.setSpans)
+    //     const node = this.myImageRef;
+    // }
+
+    setSpans = () => {
+        console.log('gfg');
+    }
+    
     static contextType = ProductContext
 
 
     render() {     
+        // console.log(this.myImageRef.current.clientWidth);
+
         const activePanel = {
             display: ''
         }
@@ -83,9 +103,9 @@ export default class SingleProduct extends Component {
 
 
                 <section className="top-container-mobile">
-                    <img src={product.images[0]} alt=""/>
+                    <img onClick={() => this.focusTextInput()} ref={this.myImageRef} src={product.images[0]} alt=""/>
                     <ul className="top-container-mobile-list">
-                        {product.images.map((item,index) => <li key={index}> <img src={item} alt=""/> </li>)}
+                        {product.images.map((item,index) => <li key={index}> <img onClick={() => console.log('fdfd')} src={item} alt=""/> </li>)}
                     </ul>
 
                     <div className="top-container-details-mobile">

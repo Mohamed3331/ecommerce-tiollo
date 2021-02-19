@@ -1352,8 +1352,22 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
   font-weight: 800;
 }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width:1350px) { 
   .jumpotron-two {
@@ -1385,9 +1399,18 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
   float: none;
   text-align-last: left;
 }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width:1000px) { 
   .jumpotron-two {
@@ -1421,6 +1444,24 @@ box-shadow: 0px 0px 2px 1px #c2c2c2;
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width:850px) {
@@ -2131,7 +2172,7 @@ html, body {
   
   .top-container-mobile {
     display: block;
-    margin-top: 100px;
+    margin-top: 50px;
     font-family: 'Varlera round';
   }
 
@@ -2140,6 +2181,7 @@ html, body {
     width: 100%;
     height: auto;
   }
+
 
   .top-container-mobile-list {
     list-style: none;
@@ -2206,8 +2248,6 @@ html, body {
   font-size: 15px;
   letter-spacing: 1px;
 }
-
-
 
 }
 

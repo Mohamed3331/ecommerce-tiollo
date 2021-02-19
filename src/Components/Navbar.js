@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import {FaShoppingBag} from 'react-icons/fa'
-import $ from "jquery"; 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import logo from '../Images/logoo.png'
@@ -24,20 +23,21 @@ export default function Navbar({NavWhite}) {
     const tata = isOpen === true ? "navbar-active" : "";
 
     useEffect(() => {
-      $(function () {
-        $(document).scroll(function () {
-          var $nav = $(".navbar")
+      let myNav = document.querySelector(".navbar");
 
-            window.addEventListener("scroll", function() {
-              $nav.toggleClass('WhiteNav', $(this).scrollTop() > $nav.height())
-            })
-        })
-      })
+      window.onscroll = function() {
+        if (document.body.scrollTop >= 1 || document.documentElement.scrollTop >= 1) {
+          myNav.classList.add("WhiteNav");
+        } else {
+          myNav.classList.remove("WhiteNav");
+        }
+      };
+
     })
 
   return (       
     <>    
-      <div className={"navbar " + NavWhite} >
+      <div className="navbar" >
         <div className="logo">
           <a href="/"> <img src={logo} alt=""/> </a>
         </div>
